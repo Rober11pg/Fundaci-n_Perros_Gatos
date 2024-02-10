@@ -4,8 +4,8 @@ include("../ClassConsultasBD.php");
 
 $oEspecie = new ClassEspecie();
 
-$oEspecie->setEspecieID($_POST['InEspecieID']);
-$oEspecie->setNombreEspecie($_POST['InNombreEspecie']);
+$oEspecie->setEspecieID($_POST['id']);
+$oEspecie->setNombreEspecie($_POST['nombre']);
 
 $oBD = new ClassConsultasBD();
 

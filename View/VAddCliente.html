@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de datos del Cliente</title>
+    <script src="./Script/Event/Eventos.js"></script>
+</head>
+
+<body>
+    <h1>Ingreso de datos</h1>
+    <form action="../Model/Inserciones/MAddCliente.php" method="post">
+
+        <label for="">Ingrese su ID de usuario: </label>
+        <input type="text" name="id" id="" placeholder="ID">
+        <br>
+        <label for="">Nombre: </label>
+        <input type="text" name="nombre" id="" placeholder="Nombre">
+        <br>
+        <label for="">Apellido: </label>
+        <input type="text" name="apellido" id="" placeholder="Apellido">
+        <br>
+        <label for="">Sexo: </label>
+        <select name="sexo" id="">
+            <option value="M">Hombre</option>
+            <option value="F">Mujer</option>
+        </select>
+        <br>
+        <label for="correo">Correo electrónico</label>
+        <input type="email" name="correo" id="correo" pattern="^[a-zAZ09.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$" required  placeholder="nombre@gmail.com"/>
+        <br>
+        <label for="">Ingrese una contraseña: </label>
+        <input type="password" name="psw" id="">
+        <br>
+        <label for="">Ingrese su tipo de usuario</label>
+        <select name="t_usuario" id="">
+            <option value="cliente">Cliente</option>
+            <option value="administrador">Administrador</option>
+        </select>
+        <br>
+        <label for="">Ingrese su número de teléfono: </label>
+        <input type="text" name="telf"  id="inter" pattern="^09\d{8}$" required placeholder="Ingrese su número de teléfono" onkeypress=" return KeyPressEnterosPositivos(event)"> 
+        <br>
+        <input type="submit" value="Guardar datos" name="ingresar">
+    </form>
+</body>
+
+</html>
