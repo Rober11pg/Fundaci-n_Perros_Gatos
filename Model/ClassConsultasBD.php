@@ -2,7 +2,6 @@
 
 include(__DIR__ . '/../Config/ClassConexion.php');
 
-
 include(__DIR__ . '/../Controller/Entidades/ClassAdquiere.php');
 include(__DIR__ . '/../Controller/Entidades/ClassEspecie.php');
 include(__DIR__ . '/../Controller/Entidades/ClassMascota.php');
@@ -314,6 +313,238 @@ class ClassConsultasBD
 
         return $usuarios;
     }
+
+    // Para Eliminaciones
+
+    public function EliminarAdquierePorID($CompraID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL EliminarAdquierePorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $CompraID);
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+
+    public function EliminarEspeciePorID($EspecieID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL EliminarEspeciePorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $EspecieID);
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+
+    public function EliminarMascotaPorID($MascotaID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL EliminarMascotaPorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $MascotaID);
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+   
+    public function EliminarRazaPorID($RazaID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL EliminarRazaPorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $RazaID);
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+
+    public function EliminarUsuarioPorID($UsuarioID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL EliminarUsuarioPorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $UsuarioID);
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+
+    // Para Actualizar
+
+    public function ActualizarAdquierePorID($IdAnterior, ClassAdquiere $adquiere)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL ActualizarAdquierePorID(?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $CompraID = $adquiere->getCompraID();
+        $UsuarioID = $adquiere->getUsuarioID();
+        $MascotaID = $adquiere->getMascotaID();
+        $FechaCompra = $adquiere->getFechaCompra();
+        $Cantidad = $adquiere->getCantidad();
+        $MontoPagado = $adquiere->getMontoPagado();
+
+        $stmt->bind_param(
+            "iiisiddi",
+            $CompraID,
+            $UsuarioID,
+            $MascotaID,
+            $FechaCompra,
+            $Cantidad,
+            $MontoPagado,
+            $IdAnterior
+        );
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+
+
+    public function ActualizarEspeciePorID($IdAnterior, ClassEspecie $especie)
+    {
+        $conexion = new ClassConexion();
+    
+        $query = "CALL ActualizarEspeciePorID(?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+    
+        $EspecieID = $especie->getEspecieID();
+        $NombreEspecie = $especie->getNombreEspecie();
+    
+        $stmt->bind_param(
+            "is",
+            $EspecieID,
+            $NombreEspecie,
+            $IdAnterior
+        );
+    
+        $stmt->execute();
+    
+        $stmt->close();
+        $conexion->CerrarConexion();
+    } 
+
+    public function ActualizarMascotaPorID($IdAnterior, ClassMascota $mascota)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL ActualizarMascotaPorID(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $MascotaID = $mascota->getMascotaID();
+        $Apodo = $mascota->getApodo();
+        $Sexo = $mascota->getSexo();
+        $RazaID = $mascota->getRazaID();
+        $EdadRelativa = $mascota->getEdadRelativa();
+        $EstadoAdopcion = $mascota->getEstadoAdopcion();
+        $FotoMascota = $mascota->getFotoMascota();
+        $FechaIngreso = $mascota->getFechaIngreso();
+
+        $stmt->bind_param(
+            "ississsss",
+            $MascotaID,
+            $Apodo,
+            $Sexo,
+            $RazaID,
+            $EdadRelativa,
+            $EstadoAdopcion,
+            $FotoMascota,
+            $FechaIngreso,
+            $IdAnterior
+        );
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+
+    public function ActualizarRazaPorID($IdAnterior, ClassRaza $raza)
+    {
+        $conexion = new ClassConexion();
+    
+        $query = "CALL ActualizarRazaPorID(?, ?, ?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+    
+        $RazaID = $raza->getRazaID();
+        $NombreRaza = $raza->getNombreRaza();
+        $Precio = $raza->getPrecio();
+        $EspecieID = $raza->getEspecieID();
+    
+        $stmt->bind_param(
+            "isdi",
+            $RazaID,
+            $NombreRaza,
+            $Precio,
+            $EspecieID,
+            $IdAnterior
+        );
+    
+        $stmt->execute();
+    
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+    
+    public function ActualizarUsuarioPorID($IdAnterior, ClassUsuario $usuario)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL ActualizarUsuarioPorID(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $UsuarioID = $usuario->getUsuarioID();
+        $Nombre = $usuario->getNombre();
+        $Apellido = $usuario->getApellido();
+        $Sexo = $usuario->getSexo();
+        $CorreoElectronico = $usuario->getCorreoElectronico();
+        $Clave = $usuario->getClave();
+        $TipoUsuario = $usuario->getTipoUsuario();
+        $NumeroTelefono = $usuario->getNumeroTelefono();
+
+        $stmt->bind_param(
+            "isssssssi",
+            $UsuarioID,
+            $Nombre,
+            $Apellido,
+            $Sexo,
+            $CorreoElectronico,
+            $Clave,
+            $TipoUsuario,
+            $NumeroTelefono,
+            $IdAnterior
+        );
+
+        $stmt->execute();
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+    }
+
 
     // Otras Sentencias
 

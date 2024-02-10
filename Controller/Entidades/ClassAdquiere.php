@@ -50,7 +50,7 @@ class ClassAdquiere {
     }
 
     public function setCantidad($Cantidad) {
-        return $this->Cantidad;
+        $this->Cantidad = $Cantidad;
     }
 
     public function getCantidad() {
@@ -58,7 +58,7 @@ class ClassAdquiere {
     }
 
     public function setMontoPagado($MontoPagado) {
-        return $this->MontoPagado;
+        $this->MontoPagado = $MontoPagado;
     }
 
     public function getMontoPagado() {
