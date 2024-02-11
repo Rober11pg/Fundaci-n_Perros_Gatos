@@ -9,6 +9,8 @@ switch ($value) {
     case 5: include("../View/VAddAdquiere.php"); break;
     case 6: include("../View/VConsultaMascota.php"); break;
     case 7: include("../View/VBusquedaMascota_Campos.php"); break;
+    case 8: include("../View/VConsultaCliente.php"); break;
+    case 9: include("../View/VBusquedaCliente_Campos.php"); break;
     default:
         echo "Ningua opción";
         break;
