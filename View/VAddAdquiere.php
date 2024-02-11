@@ -7,9 +7,8 @@
 </head>
 <body>
     <form action="../Model/Inserciones/MAddAdquiere.php" method="post">
-        <label for="">Ingrese el ID de la compra</label>
-        <input type="text" name="id_compra" id="">
-        <br>
+        <!-- <label for="">Ingrese el ID de la compra</label>
+        <input type="text" name="id_compra" id=""> -->
         <label for="">Ingrese el ID del usuario</label>
         <input type="text" name="id_usuario" id="">
         <br>

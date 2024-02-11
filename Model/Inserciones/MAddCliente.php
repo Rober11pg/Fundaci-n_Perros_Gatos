@@ -1,7 +1,6 @@
 <?php
 include(__DIR__."/../ClassConsultasBD.php");
 $usuario = new ClassUsuario();
-$usuario->setUsuarioID($_POST['id']);
 $usuario->setNombre($_POST['nombre']);
 $usuario->setApellido($_POST['apellido']);
 $usuario->setSexo($_POST['sexo']);

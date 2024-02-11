@@ -7,9 +7,8 @@
 </head>
 <body>
     <form action="../Model/Inserciones/MAddRaza.php" method="post">
-        <label for="">Ingrese la ID de la raza</label>
-        <input type="text" name="id_raza" id="">
-        <br>
+        <!-- <label for="">Ingrese la ID de la raza</label>
+        <input type="text" name="id_raza" id=""> -->
         <label for="">Ingrese el nombre de la raza</label>
         <input type="text" name="nombre" id="">
         <br>

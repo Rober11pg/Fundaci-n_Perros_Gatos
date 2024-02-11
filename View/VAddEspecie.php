@@ -7,9 +7,8 @@
 </head>
 <body>
     <form action="../Model/Inserciones/MAddEspecie.php" method="post">
-        <label for="">Ingrese la ID de la especie</label>
-        <input type="text" name="id" id="">
-        <br>
+        <!-- <label for="">Ingrese la ID de la especie</label>
+        <input type="text" name="id" id=""> -->
         <label for="">Ingrese el nombre de la especie</label>
         <input type="text" name="nombre" id="">
         <br>

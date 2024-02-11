@@ -11,14 +11,14 @@
     <h1>Ingreso de datos</h1>
     <form action="../Model/Inserciones/MAddMascota.php" method="post" enctype="multipart/form-data">
 
-        <label for="">Ingrese su ID de la mascota: </label>
-        <input type="text" name="id" id="" placeholder="ID Mascota">
-        <br>
+        <!-- <label for="">Ingrese su ID de la mascota: </label>
+        <input type="text" name="id" id="" placeholder="ID Mascota"> -->
         <label for="">Apodo: </label>
         <input type="text" name="apodo" id="" placeholder="Apodo de la mascota">
         <br>
         <label for="">Sexo: </label>
         <select name="sexo" id="">
+            <option value="" selected>Selecciona</option>
             <option value="M">Macho</option>
             <option value="F">Hembra</option>
         </select>
@@ -28,16 +28,9 @@
         <br>
         <label for="">Ingrese la edad de perro</label>
         <select name="edad" id="">
+            <option value="" selected>Selecciona</option>
             <option value="cachorro">Cachorro</option>
             <option value="adulto">Adulto</option>
-        </select>
-        <br>
-        <label for="">Estado adopción </label>
-        <select name="estado" id="">
-            <option value="disponible">Disponible</option>
-            <option value="adoptado">Adoptado</option>
-            <option value="vendido">Vendido</option>
-
         </select>
         <br>
         <label for="">Ingrese una imagen </label>

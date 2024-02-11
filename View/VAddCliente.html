@@ -12,9 +12,8 @@
     <h1>Ingreso de datos</h1>
     <form action="../Model/Inserciones/MAddCliente.php" method="post">
 
-        <label for="">Ingrese su ID de usuario: </label>
-        <input type="text" name="id" id="" placeholder="ID">
-        <br>
+        <!-- <label for="">Ingrese su ID de usuario: </label>
+        <input type="text" name="id" id="" placeholder="ID"> -->
         <label for="">Nombre: </label>
         <input type="text" name="nombre" id="" placeholder="Nombre">
         <br>
@@ -23,6 +22,7 @@
         <br>
         <label for="">Sexo: </label>
         <select name="sexo" id="">
+            <option value="" selected>Selecciona</option>
             <option value="M">Hombre</option>
             <option value="F">Mujer</option>
         </select>
