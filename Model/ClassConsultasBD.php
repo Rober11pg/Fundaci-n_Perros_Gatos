@@ -513,6 +513,114 @@ class ClassConsultasBD
 
     // Otras Sentencias
 
+    public function BuscarMascotaPorCampos($apodo, $sexo, $estadoAdopcion, $edadRelativa)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL BuscarMascotaPorCampos(?, ?, ?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("ssss", $apodo, $sexo, $estadoAdopcion, $edadRelativa);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $mascotas = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $oM = new ClassMascota();
+
+            $oM->setMascotaID($row['MascotaID']);
+            $oM->setApodo($row['Apodo']);
+            $oM->setSexo($row['Sexo']);
+            $oM->setRazaID($row['RazaID']);
+            $oM->setEdadRelativa($row['EdadRelativa']);
+            $oM->setEstadoAdopcion($row['EstadoAdopcion']);
+            $oM->setFotoMascota($row['FotoMascota']);
+            $oM->setFechaIngreso($row['FechaIngreso']);
+
+            $mascotas[] = $oM;
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        echo "Búsqueda de Mascotas por Campos, exitosa\n";
+
+        return $mascotas;
+    }
+
+    public function ValidarUsuario($CorreoElectronico, $Clave)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL ValidarUsuario(?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("ss", $CorreoElectronico, $Clave);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $usuario = null;
+
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
+            $usuario = new ClassUsuario();
+            $usuario->setUsuarioID($row['UsuarioID']);
+            $usuario->setNombre($row['Nombre']);
+            $usuario->setApellido($row['Apellido']);
+            $usuario->setSexo($row['Sexo']);
+            $usuario->setCorreoElectronico($row['CorreoElectronico']);
+            $usuario->setClave($row['Clave']);
+            $usuario->setTipoUsuario($row['TipoUsuario']);
+            $usuario->setNumeroTelefono($row['NumeroTelefono']);
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $usuario;
+    }
+
+    public function BuscarUsuarioPorCampos($sexo, $tipoUsuario)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL BuscarUsuarioPorCampos(?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("ss", $sexo, $tipoUsuario);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $usuarios = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $usuario = new ClassUsuario();
+
+            $usuario->setUsuarioID($row['UsuarioID']);
+            $usuario->setNombre($row['Nombre']);
+            $usuario->setApellido($row['Apellido']);
+            $usuario->setSexo($row['Sexo']);
+            $usuario->setCorreoElectronico($row['CorreoElectronico']);
+            $usuario->setClave($row['Clave']);
+            $usuario->setTipoUsuario($row['TipoUsuario']);
+            $usuario->setNumeroTelefono($row['NumeroTelefono']);
+
+            $usuarios[] = $usuario;
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $usuarios;
+    }
+
 }
 
 

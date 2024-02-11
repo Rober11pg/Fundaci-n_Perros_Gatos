@@ -310,3 +310,50 @@ END //
 DELIMITER ;
 
 
+****************************** Otros Procedimientos Almacenados *******************************
+
+DELIMITER //
+
+CREATE PROCEDURE BuscarMascotaPorCampos(
+    IN p_Apodo VARCHAR(50),
+    IN p_Sexo CHAR(1),
+    IN p_EstadoAdopcion VARCHAR(20),
+    IN p_EdadRelativa VARCHAR(15)
+)
+BEGIN
+    SELECT * FROM MASCOTA
+    WHERE
+        (p_Apodo IS NULL OR LOWER(Apodo) LIKE CONCAT('%', LOWER(p_Apodo), '%'))
+        AND (p_Sexo IS NULL OR Sexo = p_Sexo)
+        AND (p_EstadoAdopcion IS NULL OR EstadoAdopcion = p_EstadoAdopcion)
+        AND (p_EdadRelativa IS NULL OR EdadRelativa = p_EdadRelativa);
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE ValidarUsuario(IN p_CorreoElectronico VARCHAR(50), IN p_Clave VARCHAR(50))
+BEGIN
+    SELECT *
+    FROM USUARIO
+    WHERE CorreoElectronico = p_CorreoElectronico AND Clave = p_Clave;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE BuscarUsuarioPorCampos(
+    IN p_Sexo CHAR(1),
+    IN p_TipoUsuario VARCHAR(13)
+)
+BEGIN
+    SELECT * FROM USUARIO
+    WHERE (p_Sexo IS NULL OR Sexo = p_Sexo)
+    AND (p_TipoUsuario IS NULL OR TipoUsuario = p_TipoUsuario);
+END //
+
+DELIMITER ;

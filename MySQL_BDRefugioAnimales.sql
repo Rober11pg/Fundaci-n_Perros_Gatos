@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS USUARIO (
     Nombre VARCHAR(50),
     Apellido VARCHAR(50),
     Sexo CHAR(1) CHECK (Sexo IN ('M','F')),
-    CorreoElectronico VARCHAR(50),
+    CorreoElectronico VARCHAR(50) UNIQUE,
     Clave VARCHAR(50),
     TipoUsuario VARCHAR(13) CHECK (TipoUsuario IN ('Cliente','Administrador')),
     NumeroTelefono CHAR(10)
