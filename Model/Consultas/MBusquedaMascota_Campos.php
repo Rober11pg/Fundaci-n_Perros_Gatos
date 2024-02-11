@@ -34,6 +34,8 @@
             $li_mascota = $obd->BuscarMascotaPorCampos($apodo, $sexo, $estado, $edad);
 
             foreach ($li_mascota as $x) {
+                $fotoMascota = $x->getFotoMascota();
+                $rutaImagen = "../../View/img/" . $fotoMascota;
             ?>
                 <tr>
                     <td><?php echo $x->getMascotaID() ?></td>
@@ -42,7 +44,7 @@
                     <td><?php echo $x->getRazaID() ?></td>
                     <td><?php echo $x->getEdadRelativa() ?></td>
                     <td><?php echo $x->getEstadoAdopcion() ?></td>
-                    <td><?php echo $x->getFotoMascota() ?></td>
+                    <td><img src="<?php echo $rutaImagen ?>" alt="Foto de la mascota" style="width: 50px; height: 50px;"></td>
                     <td><?php echo $x->getFechaIngreso() ?></td>
                 </tr>
             <?php
