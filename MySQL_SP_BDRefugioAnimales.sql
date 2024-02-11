@@ -130,7 +130,7 @@ CREATE PROCEDURE InsertarMascota(
     IN p_RazaID INT,
     IN p_EdadRelativa VARCHAR(15),
     IN p_EstadoAdopcion VARCHAR(20),
-    IN p_FotoMascota VARBINARY(MAX),
+    IN p_FotoMascota LONGBLOB,
     IN p_FechaIngreso DATE
 )
 BEGIN
