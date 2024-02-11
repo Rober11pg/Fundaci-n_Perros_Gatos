@@ -15,152 +15,131 @@ class ClassConsultasBD
     public function InsertarAdquiere(ClassAdquiere $adquiere)
     {
         $conexion = new ClassConexion();
-
-        $query = "CALL InsertarAdquiere(?, ?, ?, ?, ?, ?)";
+    
+        $query = "CALL InsertarAdquiere(?, ?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
-
-        $Var01 = $adquiere->getCompraID();
-        $Var02 = $adquiere->getUsuarioID();
-        $Var03 = $adquiere->getMascotaID();
-        $Var04 = $adquiere->getFechaCompra();
-        $Var05 = $adquiere->getCantidad();
-        $Var06 = $adquiere->getMontoPagado();
-
-        $stmt->bind_param(
-            "iiisis",
-            $Var01,
-            $Var02,
-            $Var03,
-            $Var04,
-            $Var05,
-            $Var06
-        );
-
+    
+        $Var01 = $adquiere->getUsuarioID();
+        $Var02 = $adquiere->getMascotaID();
+        $Var03 = $adquiere->getFechaCompra();
+        $Var04 = $adquiere->getCantidad();
+        $Var05 = $adquiere->getMontoPagado();
+    
+        $stmt->bind_param("isssi", $Var01, $Var02, $Var03, $Var04, $Var05);
+    
         $stmt->execute();
-
+    
         $stmt->close();
         $conexion->CerrarConexion();
-
+    
         echo "Inserción de Adquiere, exitosa\n";
     }
-
+    
     public function InsertarEspecie(ClassEspecie $especie)
     {
         $conexion = new ClassConexion();
-
-        $query = "CALL InsertarEspecie(?, ?)";
+    
+        $query = "CALL InsertarEspecie(?)";
         $stmt = $conexion->Conectar->prepare($query);
-
-        $Var01 = $especie->getEspecieID();
-        $Var02 = $especie->getNombreEspecie();
-
-        $stmt->bind_param("is", $Var01, $Var02);
-
+    
+        $Var01 = $especie->getNombreEspecie();
+    
+        $stmt->bind_param("s", $Var01);
+    
         $stmt->execute();
-
+    
         $stmt->close();
         $conexion->CerrarConexion();
-
+    
         echo "Inserción de Especie, exitosa\n";
     }
     
     public function InsertarMascota(ClassMascota $mascota)
     {
         $conexion = new ClassConexion();
-
-        $query = "CALL InsertarMascota(?, ?, ?, ?, ?, ?, ?, ?)";
+    
+        $query = "CALL InsertarMascota(?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
-
-        $Var01 = $mascota->getMascotaID();
-        $Var02 = $mascota->getApodo();
-        $Var03 = $mascota->getSexo();
-        $Var04 = $mascota->getRazaID();
-        $Var05 = $mascota->getEdadRelativa();
-        $Var06 = $mascota->getEstadoAdopcion();
-        $Var07 = $mascota->getFotoMascota();
-        $Var08 = $mascota->getFechaIngreso();
-
+    
+        $Var01 = $mascota->getApodo();
+        $Var02 = $mascota->getSexo();
+        $Var03 = $mascota->getRazaID();
+        $Var04 = $mascota->getEdadRelativa();
+        $Var05 = $mascota->getEstadoAdopcion();
+        $Var06 = $mascota->getFotoMascota();
+        $Var07 = $mascota->getFechaIngreso();
+    
         $stmt->bind_param(
-            "ississsss",
+            "ssissss",
             $Var01,
             $Var02,
             $Var03,
             $Var04,
             $Var05,
             $Var06,
-            $Var07,
-            $Var08
+            $Var07
         );
-
+    
         $stmt->execute();
-
+    
         $stmt->close();
         $conexion->CerrarConexion();
-
+    
         echo "Inserción de Mascota, exitosa\n";
     }
 
     public function InsertarRaza(ClassRaza $raza)
     {
         $conexion = new ClassConexion();
-
-        $query = "CALL InsertarRaza(?, ?, ?, ?)";
+    
+        $query = "CALL InsertarRaza(?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
-
-        $Var01 = $raza->getRazaID();
-        $Var02 = $raza->getNombreRaza();
-        $Var03 = $raza->getPrecio();
-        $Var04 = $raza->getEspecieID();
-
-        $stmt->bind_param(
-            "issi",
-            $Var01,
-            $Var02,
-            $Var03,
-            $Var04
-        );
-
+    
+        $Var01 = $raza->getNombreRaza();
+        $Var02 = $raza->getPrecio();
+        $Var03 = $raza->getEspecieID();
+    
+        $stmt->bind_param("sdi", $Var01, $Var02, $Var03);
+    
         $stmt->execute();
-
+    
         $stmt->close();
         $conexion->CerrarConexion();
-
+    
         echo "Inserción de Raza, exitosa\n";
     }
-
+    
     public function InsertarUsuario(ClassUsuario $usuario)
     {
         $conexion = new ClassConexion();
-
-        $query = "CALL InsertarUsuario(?, ?, ?, ?, ?, ?, ?, ?)";
+    
+        $query = "CALL InsertarUsuario(?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
-
-        $Var01 = $usuario->getUsuarioID();
-        $Var02 = $usuario->getNombre();
-        $Var03 = $usuario->getApellido();
-        $Var04 = $usuario->getSexo();
-        $Var05 = $usuario->getCorreoElectronico();
-        $Var06 = $usuario->getClave();
-        $Var07 = $usuario->getTipoUsuario();
-        $Var08 = $usuario->getNumeroTelefono();
-
+    
+        $Var01 = $usuario->getNombre();
+        $Var02 = $usuario->getApellido();
+        $Var03 = $usuario->getSexo();
+        $Var04 = $usuario->getCorreoElectronico();
+        $Var05 = $usuario->getClave();
+        $Var06 = $usuario->getTipoUsuario();
+        $Var07 = $usuario->getNumeroTelefono();
+    
         $stmt->bind_param(
-            "isssssss",
+            "sssssss",
             $Var01,
             $Var02,
             $Var03,
             $Var04,
             $Var05,
             $Var06,
-            $Var07,
-            $Var08
+            $Var07
         );
-
+    
         $stmt->execute();
-
+    
         $stmt->close();
         $conexion->CerrarConexion();
-
+    
         echo "Inserción de Usuario, exitosa\n";
     }
     
@@ -393,156 +372,142 @@ class ClassConsultasBD
 
     // Para Actualizar
 
-    public function ActualizarAdquierePorID($IdAnterior, ClassAdquiere $adquiere)
+    public function ActualizarAdquierePorID(ClassAdquiere $adquiere)
     {
         $conexion = new ClassConexion();
-
-        $query = "CALL ActualizarAdquierePorID(?, ?, ?, ?, ?, ?, ?, ?)";
+    
+        $query = "CALL ActualizarAdquierePorID(?, ?, ?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
-
-        $CompraID = $adquiere->getCompraID();
-        $UsuarioID = $adquiere->getUsuarioID();
-        $MascotaID = $adquiere->getMascotaID();
-        $FechaCompra = $adquiere->getFechaCompra();
-        $Cantidad = $adquiere->getCantidad();
-        $MontoPagado = $adquiere->getMontoPagado();
-
-        $stmt->bind_param(
-            "iiisiddi",
-            $CompraID,
-            $UsuarioID,
-            $MascotaID,
-            $FechaCompra,
-            $Cantidad,
-            $MontoPagado,
-            $IdAnterior
-        );
-
+    
+        $Var01 = $adquiere->getCompraID();
+        $Var02 = $adquiere->getUsuarioID();
+        $Var03 = $adquiere->getMascotaID();
+        $Var04 = $adquiere->getFechaCompra();
+        $Var05 = $adquiere->getCantidad();
+        $Var06 = $adquiere->getMontoPagado();
+    
+        $stmt->bind_param("iiisis", $Var01, $Var02, $Var03, $Var04, $Var05, $Var06);
+    
         $stmt->execute();
-
+    
         $stmt->close();
         $conexion->CerrarConexion();
+    
+        echo "Actualización de Adquiere, exitosa\n";
     }
+    
 
-
-    public function ActualizarEspeciePorID($IdAnterior, ClassEspecie $especie)
+    public function ActualizarEspeciePorID(ClassEspecie $especie)
     {
         $conexion = new ClassConexion();
     
         $query = "CALL ActualizarEspeciePorID(?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
     
-        $EspecieID = $especie->getEspecieID();
-        $NombreEspecie = $especie->getNombreEspecie();
+        $Var01 = $especie->getEspecieID();
+        $Var02 = $especie->getNombreEspecie();
     
-        $stmt->bind_param(
-            "is",
-            $EspecieID,
-            $NombreEspecie,
-            $IdAnterior
-        );
+        $stmt->bind_param("is", $Var01, $Var02);
     
         $stmt->execute();
     
         $stmt->close();
         $conexion->CerrarConexion();
-    } 
-
-    public function ActualizarMascotaPorID($IdAnterior, ClassMascota $mascota)
-    {
-        $conexion = new ClassConexion();
-
-        $query = "CALL ActualizarMascotaPorID(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $conexion->Conectar->prepare($query);
-
-        $MascotaID = $mascota->getMascotaID();
-        $Apodo = $mascota->getApodo();
-        $Sexo = $mascota->getSexo();
-        $RazaID = $mascota->getRazaID();
-        $EdadRelativa = $mascota->getEdadRelativa();
-        $EstadoAdopcion = $mascota->getEstadoAdopcion();
-        $FotoMascota = $mascota->getFotoMascota();
-        $FechaIngreso = $mascota->getFechaIngreso();
-
-        $stmt->bind_param(
-            "ississsss",
-            $MascotaID,
-            $Apodo,
-            $Sexo,
-            $RazaID,
-            $EdadRelativa,
-            $EstadoAdopcion,
-            $FotoMascota,
-            $FechaIngreso,
-            $IdAnterior
-        );
-
-        $stmt->execute();
-
-        $stmt->close();
-        $conexion->CerrarConexion();
+    
+        echo "Actualización de Especie, exitosa\n";
     }
 
-    public function ActualizarRazaPorID($IdAnterior, ClassRaza $raza)
+    public function ActualizarMascotaPorID(ClassMascota $mascota)
     {
         $conexion = new ClassConexion();
     
-        $query = "CALL ActualizarRazaPorID(?, ?, ?, ?)";
+        $query = "CALL ActualizarMascotaPorID(?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
     
-        $RazaID = $raza->getRazaID();
-        $NombreRaza = $raza->getNombreRaza();
-        $Precio = $raza->getPrecio();
-        $EspecieID = $raza->getEspecieID();
+        $Var01 = $mascota->getMascotaID();
+        $Var02 = $mascota->getApodo();
+        $Var03 = $mascota->getSexo();
+        $Var04 = $mascota->getRazaID();
+        $Var05 = $mascota->getEdadRelativa();
+        $Var06 = $mascota->getEstadoAdopcion();
+        $Var07 = $mascota->getFotoMascota();
+        $Var08 = $mascota->getFechaIngreso();
     
         $stmt->bind_param(
-            "isdi",
-            $RazaID,
-            $NombreRaza,
-            $Precio,
-            $EspecieID,
-            $IdAnterior
+            "isssssss",
+            $Var01,
+            $Var02,
+            $Var03,
+            $Var04,
+            $Var05,
+            $Var06,
+            $Var07,
+            $Var08
         );
     
         $stmt->execute();
     
         $stmt->close();
         $conexion->CerrarConexion();
+    
+        echo "Actualización de Mascota, exitosa\n";
+    }
+
+    public function ActualizarRazaPorID(ClassRaza $raza)
+    {
+        $conexion = new ClassConexion();
+    
+        $query = "CALL ActualizarRazaPorID(?, ?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+    
+        $Var01 = $raza->getRazaID();
+        $Var02 = $raza->getNombreRaza();
+        $Var03 = $raza->getPrecio();
+    
+        $stmt->bind_param("isd", $Var01, $Var02, $Var03);
+    
+        $stmt->execute();
+    
+        $stmt->close();
+        $conexion->CerrarConexion();
+    
+        echo "Actualización de Raza, exitosa\n";
     }
     
-    public function ActualizarUsuarioPorID($IdAnterior, ClassUsuario $usuario)
+    public function ActualizarUsuarioPorID(ClassUsuario $usuario)
     {
         $conexion = new ClassConexion();
-
-        $query = "CALL ActualizarUsuarioPorID(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+        $query = "CALL ActualizarUsuarioPorID(?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
-
-        $UsuarioID = $usuario->getUsuarioID();
-        $Nombre = $usuario->getNombre();
-        $Apellido = $usuario->getApellido();
-        $Sexo = $usuario->getSexo();
-        $CorreoElectronico = $usuario->getCorreoElectronico();
-        $Clave = $usuario->getClave();
-        $TipoUsuario = $usuario->getTipoUsuario();
-        $NumeroTelefono = $usuario->getNumeroTelefono();
-
+    
+        $Var01 = $usuario->getUsuarioID();
+        $Var02 = $usuario->getNombre();
+        $Var03 = $usuario->getApellido();
+        $Var04 = $usuario->getSexo();
+        $Var05 = $usuario->getCorreoElectronico();
+        $Var06 = $usuario->getClave();
+        $Var07 = $usuario->getTipoUsuario();
+        $Var08 = $usuario->getNumeroTelefono();
+    
         $stmt->bind_param(
-            "isssssssi",
-            $UsuarioID,
-            $Nombre,
-            $Apellido,
-            $Sexo,
-            $CorreoElectronico,
-            $Clave,
-            $TipoUsuario,
-            $NumeroTelefono,
-            $IdAnterior
+            "isssssss",
+            $Var01,
+            $Var02,
+            $Var03,
+            $Var04,
+            $Var05,
+            $Var06,
+            $Var07,
+            $Var08
         );
-
+    
         $stmt->execute();
-
+    
         $stmt->close();
         $conexion->CerrarConexion();
+    
+        echo "Actualización de Usuario, exitosa\n";
     }
 
 
