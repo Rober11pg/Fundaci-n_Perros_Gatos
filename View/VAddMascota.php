@@ -9,7 +9,7 @@
 
 <body>
     <h1>Ingreso de datos</h1>
-    <form action="../Model/Inserciones/MAddMascota.php" method="post">
+    <form action="../Model/Inserciones/MAddMascota.php" method="post" enctype="multipart/form-data">
 
         <label for="">Ingrese su ID de la mascota: </label>
         <input type="text" name="id" id="" placeholder="ID Mascota">
@@ -41,7 +41,7 @@
         </select>
         <br>
         <label for="">Ingrese una imagen </label>
-        <input type="file" name="foto" id="">
+        <input type="file" name="foto" id="foto">
         <br>
         <label for="">Ingrese la fecha de ingreso</label>
         <input type="date" name="fecha_i" id="" min="2023-01-01">

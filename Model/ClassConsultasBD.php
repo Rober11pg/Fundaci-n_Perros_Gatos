@@ -81,7 +81,7 @@ class ClassConsultasBD
         $Var08 = $mascota->getFechaIngreso();
 
         $stmt->bind_param(
-            "ississsss",
+            "ississss",
             $Var01,
             $Var02,
             $Var03,
