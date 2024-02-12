@@ -1,12 +1,12 @@
 <?php
 
-include(__DIR__ . '/../Config/ClassConexion.php');
+include_once(__DIR__ . '/../Config/ClassConexion.php');
 
-include(__DIR__ . '/../Controller/Entidades/ClassAdquiere.php');
-include(__DIR__ . '/../Controller/Entidades/ClassEspecie.php');
-include(__DIR__ . '/../Controller/Entidades/ClassMascota.php');
-include(__DIR__ . '/../Controller/Entidades/ClassRaza.php');
-include(__DIR__ . '/../Controller/Entidades/ClassUsuario.php');
+include_once(__DIR__ . '/../Controller/Entidades/ClassAdquiere.php');
+include_once(__DIR__ . '/../Controller/Entidades/ClassEspecie.php');
+include_once(__DIR__ . '/../Controller/Entidades/ClassMascota.php');
+include_once(__DIR__ . '/../Controller/Entidades/ClassRaza.php');
+include_once(__DIR__ . '/../Controller/Entidades/ClassUsuario.php');
 
 class ClassConsultasBD
 {
