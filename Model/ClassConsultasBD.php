@@ -32,7 +32,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Inserción de Adquiere, exitosa\n";
+        //echo"Inserción de Adquiere, exitosa\n";
     }
     
     public function InsertarEspecie(ClassEspecie $especie)
@@ -51,7 +51,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Inserción de Especie, exitosa\n";
+        //echo"Inserción de Especie, exitosa\n";
     }
     
     public function InsertarMascota(ClassMascota $mascota)
@@ -85,7 +85,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Inserción de Mascota, exitosa\n";
+        //echo"Inserción de Mascota, exitosa\n";
     }
 
     public function InsertarRaza(ClassRaza $raza)
@@ -106,7 +106,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Inserción de Raza, exitosa\n";
+        //echo"Inserción de Raza, exitosa\n";
     }
     
     public function InsertarUsuario(ClassUsuario $usuario)
@@ -140,7 +140,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Inserción de Usuario, exitosa\n";
+        //echo"Inserción de Usuario, exitosa\n";
     }
     
     // Para Consultas
@@ -170,7 +170,7 @@ class ClassConsultasBD
         $result->close();
         $conexion->CerrarConexion();
 
-        echo "Consulta de Adquiere, exitosa\n";
+        //echo"Consulta de Adquiere, exitosa\n";
 
         return $adquieres;
     }
@@ -196,7 +196,7 @@ class ClassConsultasBD
         $result->close();
         $conexion->CerrarConexion();
 
-        echo "Consulta de Especies, exitosa\n";
+        //echo"Consulta de Especies, exitosa\n";
 
         return $especies;
     }
@@ -228,7 +228,7 @@ class ClassConsultasBD
         $result->close();
         $conexion->CerrarConexion();
 
-        echo "Consulta de Mascota, exitosa\n";
+        //echo"Consulta de Mascota, exitosa\n";
 
         return $mascotas;
     }
@@ -256,7 +256,7 @@ class ClassConsultasBD
         $result->close();
         $conexion->CerrarConexion();
 
-        echo "Consulta de Raza, exitosa\n";
+        //echo"Consulta de Raza, exitosa\n";
 
         return $razas;
     }
@@ -288,7 +288,7 @@ class ClassConsultasBD
         $result->close();
         $conexion->CerrarConexion();
 
-        echo "Consulta de Usuario, exitosa\n";
+        //echo"Consulta de Usuario, exitosa\n";
 
         return $usuarios;
     }
@@ -393,7 +393,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Actualización de Adquiere, exitosa\n";
+        //echo"Actualización de Adquiere, exitosa\n";
     }
     
 
@@ -414,7 +414,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Actualización de Especie, exitosa\n";
+        //echo"Actualización de Especie, exitosa\n";
     }
 
     public function ActualizarMascotaPorID(ClassMascota $mascota)
@@ -450,7 +450,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Actualización de Mascota, exitosa\n";
+        //echo"Actualización de Mascota, exitosa\n";
     }
 
     public function ActualizarRazaPorID(ClassRaza $raza)
@@ -471,7 +471,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Actualización de Raza, exitosa\n";
+        //echo"Actualización de Raza, exitosa\n";
     }
     
     public function ActualizarUsuarioPorID(ClassUsuario $usuario)
@@ -507,7 +507,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
     
-        echo "Actualización de Usuario, exitosa\n";
+        //echo"Actualización de Usuario, exitosa\n";
     }
 
 
@@ -546,7 +546,7 @@ class ClassConsultasBD
         $stmt->close();
         $conexion->CerrarConexion();
 
-        echo "Búsqueda de Mascotas por Campos, exitosa\n";
+        //echo"Búsqueda de Mascotas por Campos, exitosa\n";
 
         return $mascotas;
     }

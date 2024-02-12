@@ -20,7 +20,7 @@ class ClassConexion
             throw new Exception("La conexión falló a BDRefugioAnimales: " . $this->Conectar->connect_error);
         }
 
-        echo "Conexión Abierta a BDRefugioAnimales\n";
+        //echo"Conexión Abierta a BDRefugioAnimales\n";
     }
 
     public function AbrirConexion() {
@@ -29,7 +29,7 @@ class ClassConexion
 
     public function CerrarConexion() {
         $this->Conectar->close();
-        echo "Conexión cerrada de BDRefugioAnimales\n";
+        //echo"Conexión cerrada de BDRefugioAnimales\n";
     }
 }
 
