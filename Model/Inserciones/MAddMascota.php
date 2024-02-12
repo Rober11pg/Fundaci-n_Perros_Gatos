@@ -1,5 +1,5 @@
 <?php
-include(__DIR__. "/../ClassConsultasBD.php");
+include_once(__DIR__. "/../ClassConsultasBD.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Fecha = new DateTime($_POST['fecha_i']);
     $mascota = new ClassMascota();

@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."/../ClassConsultasBD.php");
+include_once(__DIR__."/../ClassConsultasBD.php");
 $raza = new ClassRaza();
 $raza->setNombreRaza($_POST['nombre']);
 $raza->setPrecio($_POST['precio']);

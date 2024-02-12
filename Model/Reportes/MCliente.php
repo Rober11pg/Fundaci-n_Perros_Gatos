@@ -1,12 +1,16 @@
 <?php
 
-//include(_DIR_ . '/../Config/ClassConexion.php');
-include(__DIR__.'/../../View/VPlantillaHorizontal.php');
-//include(_DIR_."/ClassConsultasBD.php");
+// include_once(__DIR__ . '/../Config/ClassConexion.php');
+include_once(__DIR__.'/../../View/VPlantillaHorizontal.php');
+// include_once(__DIR__."/../ClassConsultasBD.php");
+
+// $obd = new ClassConsultasBD();
+// $ListaMascota = $obd->ConsultarMascotas();
 
 $conexion = mysqli_connect('localhost','root','','bdrefugioanimales');
 $sql = "SELECT *FROM usuario";
 $resultado = mysqli_query($conexion, $sql);
+
 // PDF instance
 $pdf = new PDF();
 $pdf->AliasNbPages();

@@ -1,5 +1,5 @@
 <?php
-include(__DIR__.'/../fpdf182/fpdf.php');
+include_once(__DIR__.'/../fpdf182/fpdf.php');
 
 class PDF extends FPDF
 {

@@ -1,5 +1,5 @@
 <<?php
-include(__DIR__."/../ClassConsultasBD.php");
+include_once(__DIR__."/../ClassConsultasBD.php");
 $Fecha = new DateTime($_POST['fecha_compra']);
 $adquiere = new ClassAdquiere();
 $adquiere->setUsuarioID($_POST['id_usuario']);

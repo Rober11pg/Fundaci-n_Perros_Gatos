@@ -27,7 +27,7 @@
             <?php
             $sexo =  ($_POST['sexo'] == "null")? null : $_POST['sexo'];
             $usuario = ($_POST['t_usuario'] == "null")? null : $_POST['t_usuario'];
-            include(__DIR__ . '/../ClassConsultasBD.php');
+            include_once(__DIR__ . '/../ClassConsultasBD.php');
             $obd = new ClassConsultasBD();
             $li_usuario = $obd->BuscarUsuarioPorCampos($sexo, $usuario);
 

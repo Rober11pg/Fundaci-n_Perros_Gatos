@@ -1,3 +1,3 @@
 <?php            
-    include(__DIR__. '/../Model/Consultas/MConsultaCliente.php'); 
+    include_once(__DIR__. '/../Model/Consultas/MConsultaCliente.php'); 
 ?>

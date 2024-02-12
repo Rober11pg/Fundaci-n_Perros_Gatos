@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."/../ClassConsultasBD.php");
+include_once(__DIR__."/../ClassConsultasBD.php");
 $usuario = new ClassUsuario();
 $usuario->setNombre($_POST['nombre']);
 $usuario->setApellido($_POST['apellido']);

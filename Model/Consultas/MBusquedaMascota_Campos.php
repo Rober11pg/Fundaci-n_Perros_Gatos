@@ -29,7 +29,7 @@
             $sexo =  ($_POST['sexo'] == "null")? null : $_POST['sexo'];
             $estado = ($_POST['estado'] == "null")? null : $_POST['estado'];
             $edad = ($_POST['edad'] == "null")? null : $_POST['edad'];
-            include(__DIR__ . '/../ClassConsultasBD.php');
+            include_once(__DIR__ . '/../ClassConsultasBD.php');
             $obd = new ClassConsultasBD();
             $li_mascota = $obd->BuscarMascotaPorCampos($apodo, $sexo, $estado, $edad);
 

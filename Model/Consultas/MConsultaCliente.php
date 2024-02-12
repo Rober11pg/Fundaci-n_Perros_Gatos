@@ -27,7 +27,7 @@
 
     </center>
     <?php
-    include(__DIR__ . '/../ClassConsultasBD.php');
+    include_once(__DIR__ . '/../ClassConsultasBD.php');
     $obd = new ClassConsultasBD();
     $li_usuario = $obd->ConsultarUsuarios();
 
