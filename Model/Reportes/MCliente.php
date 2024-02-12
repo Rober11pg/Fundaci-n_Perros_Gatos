@@ -25,16 +25,18 @@ $cellPadding = 3;
 // 3. Add spacing between cells (optional):
 $cellSpacing = 2;
 
-$pdf->Ln(20);
+$pdf->Ln(10);
 $pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell($cellWidthUsuarioID + $cellSpacing, 6, 'UsuarioID', 1, 0, 'C');
+// Título de la tabla
+$pdf->Cell(0, 10, 'Lista de usuarios', 0, 1, 'C');
+$pdf->Cell($cellWidthUsuarioID + $cellSpacing, 6, 'Usuario ID', 1, 0, 'C');
 $pdf->Cell($cellWidthNombre + $cellSpacing, 6, 'Nombre', 1, 0, 'C');
 $pdf->Cell($cellWidthApellido + $cellSpacing, 6, 'Apellido', 1, 0, 'C');
 $pdf->Cell($cellWidthSexo + $cellSpacing, 6, 'Sexo', 1, 0, 'C');
-$pdf->Cell($cellWidthCorreo + $cellSpacing, 6, 'CorreoElectronico', 1, 0, 'C');
+$pdf->Cell($cellWidthCorreo + $cellSpacing, 6, 'Correo Electronico', 1, 0, 'C');
 $pdf->Cell($cellWidthClave + $cellSpacing, 6, 'Clave', 1, 0, 'C');
-$pdf->Cell($cellWidthTipoUsuario + $cellSpacing, 6, 'TipoUsuario', 1, 0, 'C');
-$pdf->Cell($cellWidthTelefono + $cellSpacing, 6, 'NumeroTelefono', 1, 0, 'C');
+$pdf->Cell($cellWidthTipoUsuario + $cellSpacing, 6, 'Tipo Usuario', 1, 0, 'C');
+$pdf->Cell($cellWidthTelefono + $cellSpacing, 6, 'Numero Telefono', 1, 0, 'C');
 
 foreach ($ListaUsuario as $x) 
 {

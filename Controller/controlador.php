@@ -14,6 +14,9 @@ switch ($value) {
     case 10: include_once("../Model/Reportes/MCliente.php"); break;
     case 11: include_once("../Model/Reportes/MMascota.php"); break;
     case 12: include_once("../Model/Reportes/MEspecie.php"); break;
+    case 13: include_once("../Model/Reportes/MRaza.php"); break;
+    case 14: include_once("../Model/Reportes/MAdquiere.php"); break;
+    case 15: include_once("../Model/Reportes/MMascotaSexoF_Cachorro.php"); break;
     default:
         echo "Ningua opción";
         break;
