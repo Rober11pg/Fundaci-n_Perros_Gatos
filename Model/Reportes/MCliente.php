@@ -1,0 +1,73 @@
+<?php
+
+//include(_DIR_ . '/../Config/ClassConexion.php');
+include(__DIR__.'/../../View/VPlantillaHorizontal.php');
+//include(_DIR_."/ClassConsultasBD.php");
+
+$conexion = mysqli_connect('localhost','root','','bdrefugioanimales');
+$sql = "SELECT *FROM usuario";
+$resultado = mysqli_query($conexion, $sql);
+// PDF instance
+$pdf = new PDF();
+$pdf->AliasNbPages();
+$pdf->setHorizontalLandscape();
+
+
+$cellWidthUsuarioID = 40;
+$cellWidthNombre = 50;
+$cellWidthApellido = 50;
+$cellWidthSexo = 30;
+$cellWidthCorreo = 70;
+$cellWidthClave = 35;
+$cellWidthTipoUsuario = 35;
+$cellWidthTelefono = 50;
+
+// 2. Set cell padding:
+$cellPadding = 3;
+
+// 3. Add spacing between cells (optional):
+$cellSpacing = 2;
+
+
+$pdf->Ln(20);
+$pdf->SetFont('Arial', 'B', 14);
+$pdf->Cell($cellWidthUsuarioID + $cellSpacing, 6, 'UsuarioID', 1, 0, 'C');
+$pdf->Cell($cellWidthNombre + $cellSpacing, 6, 'Nombre', 1, 0, 'C');
+$pdf->Cell($cellWidthApellido + $cellSpacing, 6, 'Apellido', 1, 0, 'C');
+$pdf->Cell($cellWidthSexo + $cellSpacing, 6, 'Sexo', 1, 0, 'C');
+$pdf->Cell($cellWidthCorreo + $cellSpacing, 6, 'CorreoElectronico', 1, 0, 'C');
+$pdf->Cell($cellWidthClave + $cellSpacing, 6, 'Clave', 1, 0, 'C');
+$pdf->Cell($cellWidthTipoUsuario + $cellSpacing, 6, 'TipoUsuario', 1, 0, 'C');
+$pdf->Cell($cellWidthTelefono + $cellSpacing, 6, 'NumeroTelefono', 1, 0, 'C');
+
+// $pdf->Cell(30, 6, 'Sexo', 1, 0, 'C');
+// $pdf->Cell(30, 6, 'CorreoElectronico', 1, 0, 'C');
+// $pdf->Cell(30, 6, 'Clave', 1, 0, 'C');
+// $pdf->Cell(30, 6, 'TipoUsuario', 1, 0, 'C');
+// $pdf->Cell(30, 6, 'NumeroTelefono', 1, 0, 'C');
+
+
+
+while($mostrar = mysqli_fetch_array($resultado))
+{
+    $pdf->Ln(6);
+
+    $pdf->Cell($cellWidthUsuarioID + $cellSpacing, 6, $mostrar['UsuarioID'], 1, 0, 'C');
+    $pdf->Cell($cellWidthNombre + $cellSpacing, 6, $mostrar['Nombre'], 1, 0, 'C');
+    $pdf->Cell($cellWidthApellido + $cellSpacing, 6, $mostrar['Apellido'], 1, 0, 'C');
+    $pdf->Cell($cellWidthSexo + $cellSpacing, 6, $mostrar['Sexo'], 1, 0, 'C');
+    $pdf->Cell($cellWidthCorreo + $cellSpacing, 6, $mostrar['CorreoElectronico'], 1, 0, 'C');
+    $pdf->Cell($cellWidthClave + $cellSpacing, 6, $mostrar['Clave'], 1, 0, 'C');
+    $pdf->Cell($cellWidthTipoUsuario + $cellSpacing, 6, $mostrar['TipoUsuario'], 1, 0, 'C');
+    $pdf->Cell($cellWidthTelefono + $cellSpacing, 6, $mostrar['NumeroTelefono'], 1, 0, 'C');
+
+    // $pdf->Cell(30, 6, $mostrar['Apellido'], 1, 0, 'C');
+    // $pdf->Cell(30, 6, $mostrar['Sexo'], 1, 0, 'C');
+    // $pdf->Cell(30, 6, $mostrar['CorreoElectronico'], 1, 0, 'C');
+    // $pdf->Cell(30, 6, $mostrar['Clave'], 1, 0, 'C');
+    // $pdf->Cell(30, 6, $mostrar['TipoUsuario'], 1, 0, 'C');
+    // $pdf->Cell(30, 6, $mostrar['NumeroTelefono'], 1, 0, 'C');
+}
+
+$pdf -> Output('I');
+?>

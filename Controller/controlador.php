@@ -11,6 +11,9 @@ switch ($value) {
     case 7: include("../View/VBusquedaMascota_Campos.php"); break;
     case 8: include("../View/VConsultaCliente.php"); break;
     case 9: include("../View/VBusquedaCliente_Campos.php"); break;
+    case 10: include("../Model/Reportes/MCliente.php"); break;
+    case 11: include("../Model/Reportes/MMascota.php"); break;
+    case 12: include("../Model/Reportes/MEspecie.php"); break;
     default:
         echo "Ningua opción";
         break;
