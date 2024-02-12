@@ -510,7 +510,181 @@ class ClassConsultasBD
         //echo"Actualización de Usuario, exitosa\n";
     }
 
+    // Para Buscar
 
+    public function BuscarAdquierePorID($CompraID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL BuscarAdquierePorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $CompraID);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $adquieres = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $oA = new ClassAdquiere();
+
+            $oA->setCompraID($row['CompraID']);
+            $oA->setUsuarioID($row['UsuarioID']);
+            $oA->setMascotaID($row['MascotaID']);
+            $oA->setFechaCompra($row['FechaCompra']);
+            $oA->setCantidad($row['Cantidad']);
+            $oA->setMontoPagado($row['MontoPagado']);
+
+            $adquieres[] = $oA;
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        // echo "Búsqueda de Adquiere por ID exitosa\n";
+
+        return $adquieres;
+    }
+
+    public function BuscarEspeciePorID($EspecieID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL BuscarEspeciePorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $EspecieID);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $especies = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $oE = new ClassEspecie();
+
+            $oE->setEspecieID($row['EspecieID']);
+            $oE->setNombreEspecie($row['NombreEspecie']);
+
+            $especies[] = $oE;
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        // echo "Búsqueda de Especie por ID exitosa\n";
+
+        return $especies;
+    }
+
+    public function BuscarMascotaPorID($MascotaID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL BuscarMascotaPorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $MascotaID);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $mascotas = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $oM = new ClassMascota();
+
+            $oM->setMascotaID($row['MascotaID']);
+            $oM->setApodo($row['Apodo']);
+            $oM->setSexo($row['Sexo']);
+            $oM->setRazaID($row['RazaID']);
+            $oM->setEdadRelativa($row['EdadRelativa']);
+            $oM->setEstadoAdopcion($row['EstadoAdopcion']);
+            $oM->setFotoMascota($row['FotoMascota']);
+            $oM->setFechaIngreso($row['FechaIngreso']);
+
+            $mascotas[] = $oM;
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        // echo "Búsqueda de Mascota por ID exitosa\n";
+
+        return $mascotas;
+    }
+
+    public function BuscarRazaPorID($RazaID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL BuscarRazaPorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $RazaID);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $razas = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $oR = new ClassRaza();
+
+            $oR->setRazaID($row['RazaID']);
+            $oR->setNombreRaza($row['NombreRaza']);
+            $oR->setPrecio($row['Precio']);
+            $oR->setEspecieID($row['EspecieID']);
+
+            $razas[] = $oR;
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        // echo "Búsqueda de Raza por ID exitosa\n";
+
+        return $razas;
+    }
+
+    public function BuscarUsuarioPorID($UsuarioID)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "CALL BuscarUsuarioPorID(?)";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("i", $UsuarioID);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $usuarios = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $oU = new ClassUsuario();
+
+            $oU->setUsuarioID($row['UsuarioID']);
+            $oU->setNombre($row['Nombre']);
+            $oU->setApellido($row['Apellido']);
+            $oU->setSexo($row['Sexo']);
+            $oU->setCorreoElectronico($row['CorreoElectronico']);
+            $oU->setClave($row['Clave']);
+            $oU->setTipoUsuario($row['TipoUsuario']);
+            $oU->setNumeroTelefono($row['NumeroTelefono']);
+
+            $usuarios[] = $oU;
+        }
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        // echo "Búsqueda de Usuario por ID exitosa\n";
+
+        return $usuarios;
+    }
+    
     // Otras Sentencias
 
     public function BuscarMascotaPorCampos($apodo, $sexo, $estadoAdopcion, $edadRelativa)
