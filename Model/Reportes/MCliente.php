@@ -10,7 +10,6 @@ $ListaUsuario = $obd->ConsultarUsuarios();
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->setHorizontalLandscape();
-
 $cellWidthUsuarioID = 40;
 $cellWidthNombre = 50;
 $cellWidthApellido = 50;
