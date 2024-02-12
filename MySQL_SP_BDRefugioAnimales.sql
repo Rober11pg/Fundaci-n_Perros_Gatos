@@ -37,6 +37,17 @@ END //
 DELIMITER ;
 
 DELIMITER //
+
+CREATE PROCEDURE BuscarAdquierePorID(
+    IN p_CompraID INT
+)
+BEGIN
+    SELECT * FROM ADQUIERE WHERE CompraID = p_CompraID;
+END //
+
+DELIMITER ;
+
+DELIMITER //
 CREATE PROCEDURE ActualizarAdquierePorID(
     IN p_CompraID INT,
     IN p_UsuarioID INT,
@@ -96,6 +107,18 @@ DELIMITER ;
 
 DELIMITER //
 
+CREATE PROCEDURE BuscarEspeciePorID(
+    IN p_EspecieID INT
+)
+BEGIN
+    SELECT * FROM ESPECIE WHERE EspecieID = p_EspecieID;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
 CREATE PROCEDURE ActualizarEspeciePorID(
     IN p_EspecieID INT,
     IN p_NombreEspecie VARCHAR(20)
@@ -150,6 +173,18 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE BuscarMascotaPorID(
+    IN p_MascotaID INT
+)
+BEGIN
+    SELECT * FROM MASCOTA WHERE MascotaID = p_MascotaID;
+END //
+
+DELIMITER ;
+
 
 DELIMITER //
 
@@ -217,6 +252,17 @@ END //
 
 DELIMITER //
 
+DELIMITER //
+
+CREATE PROCEDURE BuscarRazaPorID(
+    IN p_RazaID INT
+)
+BEGIN
+    SELECT * FROM RAZA WHERE RazaID = p_RazaID;
+END //
+
+DELIMITER ;
+
 CREATE PROCEDURE ActualizarRazaPorID(
     IN p_RazaID INT,
     IN p_NombreRaza VARCHAR(50),
@@ -276,6 +322,17 @@ CREATE PROCEDURE EliminarUsuarioPorID(
 )
 BEGIN
     DELETE FROM USUARIO WHERE UsuarioID = p_UsuarioID;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE BuscarUsuarioPorID(
+    IN p_UsuarioID INT
+)
+BEGIN
+    SELECT * FROM USUARIO WHERE UsuarioID = p_UsuarioID;
 END //
 
 DELIMITER ;
