@@ -1,7 +1,7 @@
 <?php
 include_once(__DIR__.'/../../View/VPlantillaReporte.php');
 include_once(__DIR__."/../ClassConsultasBD.php");
-
+include_once(__DIR__ . '/../../View/Script/Func/ClassRotulosFKs.php');
 $obd = new ClassConsultasBD();
 $ListaRaza = $obd->ConsultarRazas();
 
@@ -26,8 +26,10 @@ $pdf->Cell($posicion_x);
 $pdf->Cell(30, 6, 'Raza', 1, 0, 'C');
 $pdf->Cell(40, 6, 'Nombre Raza', 1, 0, 'C');
 $pdf->Cell(30, 6, 'Precio', 1, 0, 'C');
-$pdf->Cell(30, 6, 'Especie ID', 1, 0, 'C');
+$pdf->Cell(30, 6, 'Especie', 1, 0, 'C');
 
+// cambia el id por un rotulo
+$orotulo = new ClassRotulosFKs();
 foreach($ListaRaza as $x)
 {
     $pdf->Ln(6);
@@ -35,7 +37,7 @@ foreach($ListaRaza as $x)
     $pdf->Cell(30, 6, $x->getRazaID(), 1, 0, 'C');
     $pdf->Cell(40, 6,  $x->getNombreRaza(), 1, 0, 'C');
     $pdf->Cell(30, 6,  $x->getPrecio(), 1, 0, 'C');
-    $pdf->Cell(30, 6,  $x->getEspecieID(), 1, 0, 'C');
+    $pdf->Cell(30, 6,  $orotulo->RotuloFK_Especie($x->getEspecieID()), 1, 0, 'C');
 }
 
 $pdf -> Output('I');

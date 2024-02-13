@@ -2,6 +2,8 @@
 
 include_once(__DIR__.'/../../View/VPlantillaHorizontal.php');
 include_once(__DIR__."/../ClassConsultasBD.php");
+include_once(__DIR__ . '/../../View/Script/Func/ClassRotulosFKs.php');
+
 
 $obd = new ClassConsultasBD();
 $ListaUsuario = $obd->ConsultarUsuarios();
@@ -38,6 +40,7 @@ $pdf->Cell($cellWidthClave + $cellSpacing, 6, 'Clave', 1, 0, 'C');
 $pdf->Cell($cellWidthTipoUsuario + $cellSpacing, 6, 'Tipo Usuario', 1, 0, 'C');
 $pdf->Cell($cellWidthTelefono + $cellSpacing, 6, 'Numero Telefono', 1, 0, 'C');
 
+$orotulo = new ClassRotulosFKs();
 foreach ($ListaUsuario as $x) 
 {
     $pdf->Ln(6);
@@ -45,7 +48,7 @@ foreach ($ListaUsuario as $x)
     $pdf->Cell($cellWidthUsuarioID + $cellSpacing, 6, $x->getUsuarioID(), 1, 0, 'C');
     $pdf->Cell($cellWidthNombre + $cellSpacing, 6, $x->getNombre(), 1, 0, 'C');
     $pdf->Cell($cellWidthApellido + $cellSpacing, 6, $x->getApellido(), 1, 0, 'C');
-    $pdf->Cell($cellWidthSexo + $cellSpacing, 6, $x->getSexo(), 1, 0, 'C');
+    $pdf->Cell($cellWidthSexo + $cellSpacing, 6, $orotulo->RotuloFK_SexoUsuario($x->getUsuarioID()), 1, 0, 'C');
     $pdf->Cell($cellWidthCorreo + $cellSpacing, 6, $x->getCorreoElectronico(), 1, 0, 'C');
     $pdf->Cell($cellWidthClave + $cellSpacing, 6, $x->getClave(), 1, 0, 'C');
     $pdf->Cell($cellWidthTipoUsuario + $cellSpacing, 6, $x->getTipoUsuario(), 1, 0, 'C');
