@@ -4,6 +4,21 @@ include_once(__DIR__ .'/../../../Model/ClassConsultasBD.php');
 
 class ClassRotulosFKs
 {
+    public function RotuloFK_Mascota($IdMascota)
+    {
+        $oBD = new ClassConsultasBD();
+        $Mascota = $oBD->BuscarMascotaPorID($IdMascota);
+        
+        $Rotulo = "";
+
+        foreach ($Mascota as $x) 
+        {
+            $Rotulo = $x->getApodo();
+        }
+
+        return $Rotulo;
+    }
+    
     public function RotuloFK_Especie($IdEspecie)
     {
         $oBD = new ClassConsultasBD();
