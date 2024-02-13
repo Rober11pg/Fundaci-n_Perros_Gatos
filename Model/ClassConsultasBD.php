@@ -421,7 +421,7 @@ class ClassConsultasBD
     {
         $conexion = new ClassConexion();
     
-        $query = "CALL ActualizarMascotaPorID(?, ?, ?, ?, ?, ?, ?)";
+        $query = "CALL ActualizarMascotaPorID(?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
     
         $Var01 = $mascota->getMascotaID();

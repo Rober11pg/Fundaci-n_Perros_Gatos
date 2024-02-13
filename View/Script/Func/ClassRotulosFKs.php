@@ -93,4 +93,34 @@ class ClassRotulosFKs
 
         return $Rotulo;
     }
+
+    public function RotuloFK_SexoMascota($IdMascota)
+    {
+        $oBD = new ClassConsultasBD();
+        $Mascota = $oBD->BuscarMascotaPorID($IdMascota);
+        
+        $Rotulo = "";
+
+        foreach ($Mascota as $x) 
+        {
+            $Rotulo = ($x->getSexo() === "M") ? "Macho" : "Hembra";
+        }
+
+        return $Rotulo;
+    }
+
+    public function RotuloFK_SexoUsuario($IdUsuario)
+    {
+        $oBD = new ClassConsultasBD();
+        $Usuario = $oBD->BuscarUsuarioPorID($IdUsuario);
+        
+        $Rotulo = "";
+
+        foreach ($Usuario as $x) 
+        {
+            $Rotulo = ($x->getSexo() === "M") ? "Masculino" : "Femenino";
+        }
+
+        return $Rotulo;
+    }
 }
