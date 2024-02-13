@@ -478,7 +478,7 @@ class ClassConsultasBD
     {
         $conexion = new ClassConexion();
     
-        $query = "CALL ActualizarUsuarioPorID(?, ?, ?, ?, ?, ?, ?)";
+        $query = "CALL ActualizarUsuarioPorID(?, ?, ?, ?, ?, ?, ? ,?)";
         $stmt = $conexion->Conectar->prepare($query);
     
         $Var01 = $usuario->getUsuarioID();
