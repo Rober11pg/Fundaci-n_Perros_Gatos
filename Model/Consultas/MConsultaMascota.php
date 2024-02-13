@@ -9,7 +9,7 @@
 
 <body>
     <center>
-        <h1>Consulta de máscota</h1>
+        <h1>Consulta Mascota</h1>
     </center>
     <br>
     <center>
@@ -43,6 +43,8 @@
             <td><?php echo $x->getEstadoAdopcion() ?></td>
             <td><?php echo $x->getFotoMascota() ?></td>
             <td><?php echo $x->getFechaIngreso() ?></td>
+            <td><a href="../Model/Eliminar/MDeleteMascota.php?id=<?php echo $x->getMascotaID() ?>">Eliminar</a></td>
+            <td><a href="../">Actualizar</a></td>\
         </tr>
     <?php
     }

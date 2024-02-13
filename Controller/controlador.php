@@ -17,9 +17,11 @@ switch ($value) {
     case 13: include_once("../Model/Reportes/MRaza.php"); break;
     case 14: include_once("../Model/Reportes/MAdquiere.php"); break;
     case 15: include_once("../Model/Reportes/MMascotaSexoF_Cachorro.php"); break;
+    case 16: include_once("../View/VConsultaEspecie.php"); break;
+    case 17: include_once("../View/VConsultaRaza.php"); break;
     default:
         echo "Ningua opción";
-        break;
+    break;
 }
     
 ?>
