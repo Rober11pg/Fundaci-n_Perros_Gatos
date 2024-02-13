@@ -795,6 +795,93 @@ class ClassConsultasBD
         return $usuarios;
     }
 
+    // FUNCIONES
+
+    public function ExisteApodo($Apodo)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "SELECT ExisteApodo(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("s", $Apodo);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $existe = $row['Existe'];
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $existe;
+    }
+
+    public function ExisteNombreEspecie($NombreEspecie)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "SELECT ExisteNombreEspecie(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("s", $NombreEspecie);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $existe = $row['Existe'];
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $existe;
+    }
+
+    public function ExisteNombreRaza($NombreRaza)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "SELECT ExisteNombreRaza(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("s", $NombreRaza);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $existe = $row['Existe'];
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $existe;
+    }
+
+    public function ExisteCorreoElectronico($CorreoElectronico)
+    {
+        $conexion = new ClassConexion();
+    
+        $query = "SELECT ExisteCorreoElectronico(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+    
+        $stmt->bind_param("s", $CorreoElectronico);
+    
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+    
+        $existe = $row['Existe'];
+    
+        $stmt->close();
+        $conexion->CerrarConexion();
+    
+        return $existe;
+    }
+    
+
 }
 
 

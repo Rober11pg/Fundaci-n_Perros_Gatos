@@ -414,3 +414,64 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+****************************** Otros FUNCIONES *******************************
+
+DELIMITER //
+
+CREATE FUNCTION ExisteApodo(p_Apodo VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM MASCOTA WHERE Apodo = p_Apodo) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE FUNCTION ExisteNombreEspecie(p_NombreEspecie VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM ESPECIE WHERE NombreEspecie = p_NombreEspecie) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE FUNCTION ExisteNombreRaza(p_NombreRaza VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM RAZA WHERE NombreRaza = p_NombreRaza) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE FUNCTION ExisteCorreoElectronico(p_CorreoElectronico VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM USUARIO WHERE CorreoElectronico = p_CorreoElectronico) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+
