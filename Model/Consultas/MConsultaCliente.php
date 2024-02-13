@@ -9,7 +9,7 @@
 
 <body>
     <center>
-        <h1>Consulta de máscota</h1>
+        <h1>Consulta de cliente</h1>
     </center>
     <br>
     <center>
@@ -42,6 +42,8 @@
             <td><?php echo $x->getClave() ?></td>
             <td><?php echo $x->getTipoUsuario() ?></td>
             <td><?php echo $x->getNumeroTelefono() ?></td>
+            <td><a href="../Model/Eliminar/MDeleteCliente.php?id=<?php echo $x->getUsuarioID() ?>">Eliminar</a></td>
+            <td><a href="../">Actualizar</a></td>
         </tr>
     <?php
     }
