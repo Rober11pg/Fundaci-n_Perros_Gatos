@@ -8,8 +8,15 @@ class ClassRotulosFKs
     {
         $oBD = new ClassConsultasBD();
         $Especie = $oBD->BuscarEspeciePorID($IdEspecie);
+        
+        $Rotulo = "";
 
-        return $Especie[]->getNombreEspecie();
+        foreach ($Especie as $x) 
+        {
+            $Rotulo = $x->getNombreEspecie();
+        }
+
+        return $Rotulo;
     }
 
     public function RotuloFK_Raza($IdRaza)
@@ -17,7 +24,14 @@ class ClassRotulosFKs
         $oBD = new ClassConsultasBD();
         $Raza = $oBD->BuscarRazaPorID($IdRaza);
 
-        return $Raza[]->getNombreRaza();
+        $Rotulo = "";
+
+        foreach ($Raza as $x) 
+        {
+            $Rotulo = $x->getNombreRaza();
+        }
+
+        return $Rotulo;
     }
 
     public function RotuloFK_UsuarioNombre($IdUsuario)
@@ -25,15 +39,29 @@ class ClassRotulosFKs
         $oBD = new ClassConsultasBD();
         $Usuario = $oBD->BuscarUsuarioPorID($IdUsuario);
 
-        return $Usuario[]->getNombre();
+        $Rotulo = "";
+
+        foreach ($Usuario as $x) 
+        {
+            $Rotulo = $x->getNombre();
+        }
+
+        return $Rotulo;
     }
 
     public function RotuloFK_UsuarioApellido($IdUsuario)
     {
         $oBD = new ClassConsultasBD();
         $Usuario = $oBD->BuscarUsuarioPorID($IdUsuario);
+        
+        $Rotulo = "";
 
-        return $Usuario[]->getNombre();
+        foreach ($Usuario as $x) 
+        {
+            $Rotulo = $x->getApellido();
+        }
+
+        return $Rotulo;
     }
 
     public function RotuloFK_UsuarioNombreApellido($IdUsuario)
@@ -41,6 +69,13 @@ class ClassRotulosFKs
         $oBD = new ClassConsultasBD();
         $Usuario = $oBD->BuscarUsuarioPorID($IdUsuario);
 
-        return $Usuario[]->getNombre()." ".$Usuario[]->getApellido();
+        $Rotulo = "";
+
+        foreach ($Usuario as $x) 
+        {
+            $Rotulo = $x->getNombre()." ".$x->getApellido();
+        }
+
+        return $Rotulo;
     }
 }
