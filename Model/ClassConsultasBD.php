@@ -738,7 +738,7 @@ class ClassConsultasBD
 
         $result = $stmt->get_result();
 
-        $usuario = null;
+        $usuario = array();
 
         if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
