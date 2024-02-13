@@ -7,6 +7,7 @@ class ClassCalcularFactura
     private $ArregloGrupos;
     private $ArregloMonto;
     private $ArregloCantidad;
+    private $ArregloPrecioUnitario;
 
     public function __construct($ListaMascota)
     {
@@ -43,6 +44,7 @@ class ClassCalcularFactura
         $GruposRaza = $this->AgruparRazas($oMascota);
         $MontoGruposRaza = array();
         $CantidadGruposRaza = array();
+        $PrecioUnitarioRaza = array();
 
         foreach ($GruposRaza as $razaID => $Grupo) 
         {
@@ -55,11 +57,18 @@ class ClassCalcularFactura
             
             $TamPorGrupo = count($Grupo);
 
+            if (!isset($PrecioUnitarioRaza[$razaID])) 
+            {
+                $PrecioUnitarioRaza[$razaID] = array();
+            }
+            $PrecioUnitarioRaza[$razaID][] = $PrecioRaza;
+
             if (!isset($MontoGruposRaza[$razaID])) 
             {
                 $MontoGruposRaza[$razaID] = array();
             }
             $MontoGruposRaza[$razaID][] = ($PrecioRaza * $TamPorGrupo);
+            
             if (!isset($CantidadGruposRaza[$razaID])) 
             {
                 $CantidadGruposRaza[$razaID] = array();
@@ -70,6 +79,7 @@ class ClassCalcularFactura
         $this->ArregloGrupos = $GruposRaza;
         $this->ArregloCantidad = $CantidadGruposRaza;
         $this->ArregloMonto = $MontoGruposRaza;
+        $this->ArregloPrecioUnitario = $PrecioUnitarioRaza;
     }
 
 
@@ -86,6 +96,11 @@ class ClassCalcularFactura
         return $this->ArregloCantidad;
     }
 
+    public function getArregloPrecioUnitario()
+    {
+        return $this->ArregloPrecioUnitario;
+    }
+
     public function getDatosFactura()
     {
         $DatosFactura = array();
@@ -93,6 +108,7 @@ class ClassCalcularFactura
         $DatosFactura['Grupos'] = $this->ArregloGrupos;
         $DatosFactura['Cantidad'] = $this->ArregloCantidad;
         $DatosFactura['Monto'] = $this->ArregloMonto;
+        $DatosFactura['PrecioUnitario'] = $this->ArregloPrecioUnitario;
 
         return $DatosFactura;
     }
