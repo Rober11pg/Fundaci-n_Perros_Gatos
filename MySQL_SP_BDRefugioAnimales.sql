@@ -414,3 +414,85 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE BuscarMascotaEspecieRaza(
+    IN p_EspecieID INT,
+    IN p_RazaID INT,
+    IN p_Sexo CHAR(1),
+    IN p_EstadoAdopcion VARCHAR(20),
+    IN p_EdadRelativa VARCHAR(15)
+)
+BEGIN
+    SELECT *
+    FROM MASCOTA
+    WHERE (p_EspecieID IS NULL OR EspecieID = p_EspecieID)
+    AND (p_RazaID IS NULL OR RazaID = p_RazaID)
+    AND (p_Sexo IS NULL OR Sexo = p_Sexo)
+    AND (p_EstadoAdopcion IS NULL OR EstadoAdopcion = p_EstadoAdopcion)
+    AND (p_EdadRelativa IS NULL OR EdadRelativa = p_EdadRelativa);
+END //
+
+DELIMITER ;
+
+
+****************************** Otros FUNCIONES *******************************
+
+DELIMITER //
+
+CREATE FUNCTION ExisteApodo(p_Apodo VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM MASCOTA WHERE Apodo = p_Apodo) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE FUNCTION ExisteNombreEspecie(p_NombreEspecie VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM ESPECIE WHERE NombreEspecie = p_NombreEspecie) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE FUNCTION ExisteNombreRaza(p_NombreRaza VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM RAZA WHERE NombreRaza = p_NombreRaza) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE FUNCTION ExisteCorreoElectronico(p_CorreoElectronico VARCHAR(50))
+RETURNS BOOLEAN
+BEGIN
+    DECLARE existe BOOLEAN;
+
+    SELECT EXISTS(SELECT 1 FROM USUARIO WHERE CorreoElectronico = p_CorreoElectronico) INTO existe;
+
+    RETURN existe;
+END //
+
+DELIMITER ;
+

@@ -738,7 +738,7 @@ class ClassConsultasBD
 
         $result = $stmt->get_result();
 
-        $usuario = null;
+        $usuario = array();
 
         if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
@@ -794,6 +794,126 @@ class ClassConsultasBD
 
         return $usuarios;
     }
+
+    public function BuscarMascotaEspecieRaza($EspecieID, $RazaID, $Sexo, $EstadoAdopcion, $EdadRelativa)
+    {
+        $conexion = new ClassConexion();
+    
+        $query = "CALL BuscarMascotaEspecieRaza(?, ?, ?, ?, ?)";
+        $stmt = $conexion->Conectar->prepare($query);
+    
+        $stmt->bind_param("iisss", $EspecieID, $RazaID, $Sexo, $EstadoAdopcion, $EdadRelativa);
+    
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $mascotas = [];
+    
+        while ($row = $result->fetch_assoc()) {
+            $mascota = new ClassMascota();
+            $mascota->setMascotaID($row['MascotaID']);
+            $mascota->setApodo($row['Apodo']);
+            $mascota->setSexo($row['Sexo']);
+            $mascota->setRazaID($row['RazaID']);
+            $mascota->setEdadRelativa($row['EdadRelativa']);
+            $mascota->setEstadoAdopcion($row['EstadoAdopcion']);
+            $mascota->setFotoMascota($row['FotoMascota']);
+            $mascota->setFechaIngreso($row['FechaIngreso']);
+            $mascotas[] = $mascota;
+        }
+    
+        $stmt->close();
+        $conexion->CerrarConexion();
+    
+        return $mascotas;
+    }
+    
+
+    // FUNCIONES
+
+    public function ExisteApodo($Apodo)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "SELECT ExisteApodo(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("s", $Apodo);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $existe = $row['Existe'];
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $existe;
+    }
+
+    public function ExisteNombreEspecie($NombreEspecie)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "SELECT ExisteNombreEspecie(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("s", $NombreEspecie);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $existe = $row['Existe'];
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $existe;
+    }
+
+    public function ExisteNombreRaza($NombreRaza)
+    {
+        $conexion = new ClassConexion();
+
+        $query = "SELECT ExisteNombreRaza(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+
+        $stmt->bind_param("s", $NombreRaza);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $existe = $row['Existe'];
+
+        $stmt->close();
+        $conexion->CerrarConexion();
+
+        return $existe;
+    }
+
+    public function ExisteCorreoElectronico($CorreoElectronico)
+    {
+        $conexion = new ClassConexion();
+    
+        $query = "SELECT ExisteCorreoElectronico(?) AS Existe";
+        $stmt = $conexion->Conectar->prepare($query);
+    
+        $stmt->bind_param("s", $CorreoElectronico);
+    
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+    
+        $existe = $row['Existe'];
+    
+        $stmt->close();
+        $conexion->CerrarConexion();
+    
+        return $existe;
+    }
+    
 
 }
 
