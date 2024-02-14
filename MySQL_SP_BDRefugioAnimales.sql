@@ -1,5 +1,5 @@
 
-****************************** ADQUIERE *******************************
+
 
 DELIMITER //
 CREATE PROCEDURE InsertarAdquiere(
@@ -71,8 +71,6 @@ DELIMITER ;
 
 
 
-******************************* ESPECIE *******************************
-
 DELIMITER //
 
 CREATE PROCEDURE InsertarEspecie(
@@ -133,8 +131,6 @@ END //
 
 DELIMITER ;
 
-
-****************************** MASCOTA *******************************
 
 DELIMITER //
 
@@ -216,7 +212,10 @@ DELIMITER ;
 
 
 
-****************************** RAZA *******************************
+
+
+
+
 
 DELIMITER //
 
@@ -249,8 +248,7 @@ CREATE PROCEDURE EliminarRazaPorID(
 BEGIN
     DELETE FROM RAZA WHERE RazaID = p_RazaID;
 END //
-
-DELIMITER //
+DELIMITER ;
 
 DELIMITER //
 
@@ -262,6 +260,8 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
 
 CREATE PROCEDURE ActualizarRazaPorID(
     IN p_RazaID INT,
@@ -281,10 +281,9 @@ DELIMITER ;
 
 
 
-DELIMITER ;
 
 
-****************************** USUARIO *******************************
+
 
 DELIMITER //
 
@@ -301,8 +300,6 @@ BEGIN
     INSERT INTO USUARIO (Nombre, Apellido, Sexo, CorreoElectronico, Clave, TipoUsuario, NumeroTelefono)
     VALUES (p_Nombre, p_Apellido, p_Sexo, p_CorreoElectronico, p_Clave, p_TipoUsuario, p_NumeroTelefono);
 END //
-
-DELIMITER ;
 
 DELIMITER ;
 
@@ -367,7 +364,6 @@ END //
 DELIMITER ;
 
 
-****************************** Otros Procedimientos Almacenados *******************************
 
 DELIMITER //
 
@@ -438,7 +434,7 @@ END//
 DELIMITER ;
 
 
-****************************** Otros FUNCIONES *******************************
+
 
 DELIMITER //
 
