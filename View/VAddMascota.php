@@ -23,8 +23,24 @@
             <option value="F">Hembra</option>
         </select>
         <br>
-        <label for="correo">Ingrese el ID de la raza</label>
-        <input type="text" name="id_raza" placeholder="ID de la raza"/>
+        <label for="correo">Ingrese la raza</label>
+        <select name="id_raza" id="">
+            <option value="" selected>Selecciona</option>
+            <?php
+            include_once(__DIR__ . '/../Model/ClassConsultasBD.php');
+            
+            $oBD = new ClassConsultasBD();
+
+            $ListaRazas = $oBD->ConsultarRazas();
+
+            foreach ($ListaRazas as $x) 
+            {
+            ?>
+                <option value="<?php echo $x->getRazaID() ?>"><?php echo $x->getNombreRaza() ?></option>
+            <?php
+            }
+            ?>
+        </select>
         <br>
         <label for="">Ingrese la edad de perro</label>
         <select name="edad" id="">
