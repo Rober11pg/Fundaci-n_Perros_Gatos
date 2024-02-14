@@ -34,7 +34,14 @@ echo "Bienvenido, " . $usuario->getNombre() . " " . $usuario->getApellido();
             <li><a href="./../Controller/controlador.php?var=16">Editar Eliminar especie</a></li>
             <li><a href="./../Controller/controlador.php?var=17">Editar Eliminar raza</a></li>
             <li><a href="./../Controller/controlador.php?var=6">Editar Eliminar mascota</a></li>
-            <li><a href="./../Controller/controlador.php?var=4?var=9">Buscar cliente</a></li>
+            <li><a href="./../Controller/controlador.php?var=9">Buscar cliente</a></li>
+
+            <li><a href="./../Controller/controlador.php?var=10">Reporte Cliente</a></li>
+            <li><a href="./../Controller/controlador.php?var=11">Reporte Mascota</a></li>
+            <li><a href="./../Controller/controlador.php?var=12">Reporte Especie</a></li>
+            <li><a href="./../Controller/controlador.php?var=13">Reporte Raza</a></li>
+            <li><a href="./../Controller/controlador.php?var=14">Reporte Adquiere</a></li>
+            <li><a href="./../Controller/controlador.php?var=15">Reporte Mascato (Campos)</a></li>
         </ul>
     </main>
 </body>
