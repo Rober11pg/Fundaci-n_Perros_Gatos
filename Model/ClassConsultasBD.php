@@ -457,14 +457,16 @@ class ClassConsultasBD
     {
         $conexion = new ClassConexion();
     
-        $query = "CALL ActualizarRazaPorID(?, ?, ?)";
+        $query = "CALL ActualizarRazaPorID(?, ?, ?, ?)";
         $stmt = $conexion->Conectar->prepare($query);
     
         $Var01 = $raza->getRazaID();
-        $Var02 = $raza->getNombreRaza();
-        $Var03 = $raza->getPrecio();
+        $Var02 = $raza->getEspecieID();
+        $Var03 = $raza->getNombreRaza();
+        $Var04 = $raza->getPrecio();
+        
     
-        $stmt->bind_param("isd", $Var01, $Var02, $Var03);
+        $stmt->bind_param("iisd", $Var01, $Var02, $Var03, $Var04);
     
         $stmt->execute();
     

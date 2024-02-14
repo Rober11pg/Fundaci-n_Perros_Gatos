@@ -265,6 +265,7 @@ DELIMITER //
 
 CREATE PROCEDURE ActualizarRazaPorID(
     IN p_RazaID INT,
+    IN p_EspecieID INT,
     IN p_NombreRaza VARCHAR(50),
     IN p_Precio DECIMAL(10, 2)
 )
@@ -272,7 +273,8 @@ BEGIN
     UPDATE RAZA 
     SET 
         NombreRaza = p_NombreRaza,
-        Precio = p_Precio
+        Precio = p_Precio,
+        EspecieID = p_EspecieID
     WHERE 
         RazaID = p_RazaID;
 END //
