@@ -1,7 +1,7 @@
 
 body{
     
-    width: 150%;
+    width: 100%;
     height: 600px;
     background: #4ebc5b3d;
     /* fallback for old browsers */
@@ -15,7 +15,7 @@ body{
 }
   
 .container{
-    width: 150%;
+    width: 100%;
     height: 600px;
     background: #4ebc5b92;
     /* fallback for old browsers */

@@ -5,45 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso de datos del Cliente</title>
+    <link rel="stylesheet" href="../fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../View/Style/estiloregistro.css">
     <script src="./Script/Event/Eventos.js"></script>
+
 </head>
 
 <body>
-    <h1>Ingreso de datos</h1>
+    <div class="wrapper" style="background-image: url('../View/img/bg-registration-form-1.jpg');">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="../View/img/registration-form-1.jpg" alt="" width="400" height="625">
+        </div>
+    
     <form action="../Model/Inserciones/MAddCliente.php" method="post">
+        <h3>Formulario de Registro</h3>
 
         <!-- <label for="">Ingrese su ID de usuario: </label>
         <input type="text" name="id" id="" placeholder="ID"> -->
-        <label for="">Nombre: </label>
-        <input type="text" name="nombre" id="" placeholder="Nombre">
-        <br>
-        <label for="">Apellido: </label>
-        <input type="text" name="apellido" id="" placeholder="Apellido">
-        <br>
-        <label for="">Sexo: </label>
-        <select name="sexo" id="">
-            <option value="" selected>Selecciona</option>
-            <option value="M">Hombre</option>
-            <option value="F">Mujer</option>
-        </select>
-        <br>
-        <label for="correo">Correo electrónico</label>
-        <input type="email" name="correo" id="correo" pattern="^[a-zAZ09.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$" required  placeholder="nombre@gmail.com"/>
-        <br>
-        <label for="">Ingrese una contraseña: </label>
-        <input type="password" name="psw" id="">
-        <br>
-        <label for="">Ingrese su tipo de usuario</label>
-        <select name="t_usuario" id="">
-            <option value="cliente">Cliente</option>
-            <option value="administrador">Administrador</option>
-        </select>
-        <br>
-        <label for="">Ingrese su número de teléfono: </label>
-        <input type="text" name="telf"  id="inter" pattern="^09\d{8}$" required placeholder="Ingrese su número de teléfono" onkeypress=" return KeyPressEnterosPositivos(event)"> 
-        <br>
+
+        <div class="form-group">
+            <input type="text" name="nombre" id="" placeholder="Nombre" class="form-control">
+            <input type="text" name="apellido" id="" placeholder="Apellido" class="form-control">
+        </div>
+
+        <div class="form-wrapper">
+            <select name="sexo" id="" class="form-control">
+                <option value="" disabled selected>Género</option>
+                <option value="M">Hombre</option>
+                <option value="F">Mujer</option>
+            </select>
+            <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+        </div>
+
+        <div class="form-wrapper">
+            <input type="email" name="correo" id="correo" pattern="^[a-zAZ09.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$" required  placeholder="nombre@gmail.com" class="form-control"/>
+            <i class="zmdi zmdi-email"></i>
+        </div>
+
+        <div class="form-wrapper">
+            <input type="password" name="psw" id="" placeholder="Ingrese contraseña" class="form-control">
+            <i class="zmdi zmdi-lock"></i>
+        </div>
+
+        <input type="text" name="t_usuario" id="" style="display: none;" value="cliente">
+
+        <div class="form-wrapper">
+            <input type="text" name="telf"  id="inter" pattern="^09\d{8}$" required placeholder="Ingrese su número de teléfono" onkeypress=" return KeyPressEnterosPositivos(event)" class="form-control"> 
+            <i class="zmdi zmdi-phone"></i>
+        </div>
+
         <input type="submit" value="Guardar datos" name="ingresar">
     </form>
 </body>
 
 </html>
+
+
+
+
