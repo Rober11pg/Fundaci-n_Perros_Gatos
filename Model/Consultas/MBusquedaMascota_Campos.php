@@ -24,7 +24,7 @@
                 <th>Fecha de ingreso</th>
             </tr>
             <?php
-            include(__DIR__ .'/../ClassConsultasBD.php');
+            include_once(__DIR__ .'/../ClassConsultasBD.php');
             include_once(__DIR__ . '/../../View/Script/Func/ClassRotulosFKs.php');
 
             $EspecieID = ($_POST['especie_ID'] == "null")? null : $_POST['especie_ID'];

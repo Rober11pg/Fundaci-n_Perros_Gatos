@@ -1,3 +1,18 @@
+<?php
+include_once(__DIR__ . "/../ClassConsultasBD.php");
+session_start(); // Iniciar la sesión si no está iniciada
+
+if (!isset($_SESSION['usuario'])) {
+    include_once(__DIR__ . "/../../View/VLogin.php");
+    exit();
+}
+
+$usuario = $_SESSION['usuario'];
+// echo "Bienvenido, " . $usuario->getNombre() . " " . $usuario->getApellido();
+
+$IdUsuario = $usuario->getUsuarioId();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,6 +75,16 @@
             {
                 $Especie = $x->getNombreEspecie();
             }
+
+            $oAdquiere = new ClassAdquiere();
+
+            $oAdquiere->setCantidad(1);
+            $oAdquiere->setMontoPagado(0);
+            $oAdquiere->setMascotaID($IdMascota);
+            $oAdquiere->setUsuarioID($IdUsuario);
+            $oAdquiere->setFechaCompra(date('Y-m-d H:i:s'));
+            
+            $oBD->InsertarAdquiere($oAdquiere);
 
             ?>
             <h3>Mascota "<?php echo $Apodo ?>"</h3>
