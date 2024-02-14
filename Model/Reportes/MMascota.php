@@ -1,7 +1,7 @@
 <?php
 
-include_once(__DIR__.'/../../View/VPlantillaHorizontal.php');
-include_once(__DIR__."/../ClassConsultasBD.php");
+include_once(__DIR__ . '/../../View/VPlantillaHorizontal.php');
+include_once(__DIR__ . "/../ClassConsultasBD.php");
 include_once(__DIR__ . '/../../View/Script/Func/ClassRotulosFKs.php');
 $obd = new ClassConsultasBD();
 $ListaMascota = $obd->ConsultarMascotas();
@@ -13,17 +13,19 @@ $pdf->setHorizontalLandscape();
 $cellWidthMascotaID = 35;
 $cellWidthApodo = 35;
 $cellWidthSexo = 35;
-$cellWidthRazaID= 35;
-$cellWidthEdadRelativa= 40;
-$cellWidthEstadoAdopcion= 50;
-$cellWidthFotoMascota= 50;
-$cellWidthFechaIngreso= 40;
+$cellWidthRazaID = 35;
+$cellWidthEdadRelativa = 40;
+$cellWidthEstadoAdopcion = 50;
+$cellWidthFotoMascota = 50;
+$cellWidthFechaIngreso = 40;
 
 // 2. Set cell padding:
 $cellPadding = 3;
 
 // 3. Add spacing between cells (optional):
 $cellSpacing = 2;
+// Define cell height
+$cellHeight = 40; // Adjust this value as needed
 $f_grande = 40;
 // Posición de la tabla 
 $ancho_total = $pdf->GetPageWidth();
@@ -47,8 +49,7 @@ $pdf->Cell($cellWidthFechaIngreso + $cellSpacing, 6, 'Fecha Ingreso', 1, 0, 'C')
 
 // cambia el id por el nombre
 $orutolo = new ClassRotulosFKs();
-foreach ($ListaMascota as $x)
-{
+foreach ($ListaMascota as $x) {
     $pdf->Ln();
     $pdf->Cell($posicion_x);
     $pdf->Cell($cellWidthMascotaID + $cellSpacing, $f_grande, $x->getMascotaID(), 1, 0, 'C');
@@ -57,9 +58,27 @@ foreach ($ListaMascota as $x)
     $pdf->Cell($cellWidthRazaID + $cellSpacing, $f_grande, $orutolo->RotuloFK_Raza($x->getRazaID()), 1, 0, 'C');
     $pdf->Cell($cellWidthEdadRelativa + $cellSpacing, $f_grande, $x->getEdadRelativa(), 1, 0, 'C');
     $pdf->Cell($cellWidthEstadoAdopcion + $cellSpacing, $f_grande, $x->getEstadoAdopcion(), 1, 0, 'C');
-    $pdf->Cell($cellWidthFotoMascota + $cellSpacing, $f_grande, $x->getFotoMascota(), 1, 0, 'C');
+    // Guarda la posición actual antes de agregar la imagen
+    $x_img = $pdf->GetX();
+    $y_img = $pdf->GetY();
+
+    // Verifica si hay una imagen disponible para la mascota
+    $fotoMascota = $x->getFotoMascota();
+    $rutaImagen = __DIR__ . "/../../View/img/" . $fotoMascota; // Ruta absoluta
+
+    // Dibuja manualmente las líneas de la celda antes de insertar la imagen
+    $pdf->Rect($x_img, $y_img, $cellWidthFotoMascota, $cellHeight);
+
+    if (file_exists($rutaImagen) && !empty($fotoMascota)) {
+        // Inserta la imagen con un ancho y alto personalizado
+        $pdf->Image($rutaImagen, $x_img + 7, $y_img + 3, 35, 35);
+    } else {
+        // Si no hay imagen, puedes dejar la celda vacía o insertar una imagen predeterminada
+        $pdf->Cell($cellWidthFotoMascota + $cellSpacing, $cellHeight, 'Sin imagen', 1, 0, 'C');
+    }
+
+    // Restaura la posición y establece la siguiente celda después de la imagen
+    $pdf->SetXY($x_img + $cellWidthFotoMascota, $y_img); // Aumenta la posición Y para dejar espacio entre la imagen y el texto siguiente
     $pdf->Cell($cellWidthFechaIngreso + $cellSpacing, $f_grande, $x->getFechaIngreso(), 1, 0, 'C');
-    
 }
-$pdf -> Output('I');
-?>
+$pdf->Output('I');
