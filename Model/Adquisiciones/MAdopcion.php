@@ -17,7 +17,8 @@
             $oBD = new ClassConsultasBD();
             $oRotulo = new ClassRotulosFKs();
 
-            $oMascota = $oBD->BuscarMascotaPorID($_REQUEST['Id']);
+            $IdMascota = $_REQUEST['Id'];
+            $oMascota = $oBD->BuscarMascotaPorID($IdMascota);
 
             $Apodo = "";
             $Raza = "";
@@ -27,11 +28,22 @@
             $IdRaza = 0;
             $IdEspecie = 0;
 
+            $oUpdateMascota = new ClassMascota();
             foreach ($oMascota as $x) 
             {
                 $Apodo = $x->getApodo();
                 $IdRaza = $x->getRazaID();
+
+                $oUpdateMascota->setMascotaID($IdMascota);
+                $oUpdateMascota->setApodo($Apodo);                
+                $oUpdateMascota->setSexo($x->getSexo());
+                $oUpdateMascota->setRazaID($IdRaza);
+                $oUpdateMascota->setEdadRelativa($x->getEdadRelativa());
+                $oUpdateMascota->setEstadoAdopcion("adoptado");
+                $oUpdateMascota->setFotoMascota($x->getFotoMascota());
+                $oUpdateMascota->setFechaIngreso($x->getFechaIngreso());
             }
+            $oBD->ActualizarMascotaPorID($oUpdateMascota);
 
             $oRaza = $oBD->BuscarRazaPorID($IdRaza);
 
