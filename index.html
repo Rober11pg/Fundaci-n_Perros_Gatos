@@ -10,30 +10,16 @@
 </head>
 <body>
     <header></header>
-    <nav>
-        <li>
-            <a href="./Controller/controlador.php?var=1">Ingresar Cliente</a>
-            <a href="./Controller/controlador.php?var=2">Ingresar Mascota</a>
-            <a href="./Controller/controlador.php?var=3">Ingresar Raza</a>
-            <a href="./Controller/controlador.php?var=4">Ingresar Especie</a>
-            <a href="./Controller/controlador.php?var=5">Ingresar Adquisición</a>
-            <a href="./Controller/controlador.php?var=6">Lista Mascota</a>
-            <a href="./Controller/controlador.php?var=7">Busqueda Mascota</a>
-            <a href="./Controller/controlador.php?var=8">Lista Cliente</a>
-            <a href="./Controller/controlador.php?var=9">Busqueda Cliente</a>
-            <a href="./Controller/controlador.php?var=10">Reporte Cliente</a>
-            <a href="./Controller/controlador.php?var=11">Reporte Mascota</a>
-            <a href="./Controller/controlador.php?var=12">Reporte Especie</a>
-            <a href="./Controller/controlador.php?var=13">Reporte Raza</a>
-            <a href="./Controller/controlador.php?var=14">Reporte Adquiere</a>
-            <a href="./Controller/controlador.php?var=15">Reporte Sexo y Cachorro</a>
-            <a href="./Controller/controlador.php?var=16">Lista especie</a>
-            <a href="./Controller/controlador.php?var=17">Lista raza</a>
-        
-        
-        </li>
-    </nav>
-    <main></main>
+    <nav></nav>
+    <main>
+        <form action="./View/VLogin.php" method="post">
+            <label for="">Ingrese su correo</label>
+            <input type="text" name="correo" id="">
+            <label for="">ingrese su contraseña</label>
+            <input type="text" name="psw" id="">
+            <input type="submit" value="Iniciar Sesion">
+        </form>
+    </main>
     <footer></footer>
 </body>
 </html>
