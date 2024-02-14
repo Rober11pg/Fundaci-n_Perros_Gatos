@@ -1,0 +1,147 @@
+
+body{
+    
+    width: 100%;
+    height: 600px;
+    background: #4ebc5b3d;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(118, 95%, 50%, 0), hsla(138, 45%, 52%, 0.315)), url(../img/inicio2.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(103, 95%, 50%, 0.041), hsla(125, 45%, 52%, 0.181)), url(../img/inicio2.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size:cover;
+    background-attachment: fixed;
+    position:relative;
+}
+  
+.container{
+    width: 100%;
+    height: 600px;
+    background: #4ebc5b92;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(118, 95%, 50%, 0.151), hsla(138, 45%, 52%, 0.315)), url(../img/inicio2.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(103, 95%, 50%, 0.208), hsla(125, 45%, 52%, 0.181)), url(../img/inicio2.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size:cover;
+    background-attachment: fixed;
+    position:relative;
+}
+
+nav{
+    text-align:right;
+    padding: 30px 50px 0px 0px;
+}
+
+nav > a,label{
+    color:hsl(0, 0%, 100%);
+    font-weight: 300;
+    text-decoration:none;
+    margin-right: 10px;
+}
+
+nav > a:hover{
+    text-decoration:underline;
+}
+
+
+.container h2{
+    font-family: 'Open Sans Condensed', sans-serif;
+    position:relative;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 3px 3px 10px #000;
+}
+
+.adoptar-comprar{
+    background: #f2f2f2;
+}
+
+.galeria-port{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-port{
+    width: 24%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(110, 91%, 27%, 0.456);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 50px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
+
+@media screen and (max-width:900px){
+    header{
+        background-position: center;
+    }
+
+    /* Galeria */
+
+    .imagen-port{
+        width: 44%;
+    }
+
+}
+
+@media screen and (max-width:500px){
+    nav{
+        text-align: center;
+        padding: 30px 0 0 0;
+    }
+
+    nav > a{
+        margin-right: 5px;
+    }
+
+    .textos-header h1{
+        font-size: 35px;
+    }
+
+    .textos-header h2{
+        font-size: 20px;
+    }
+
+    /* Galeria */
+
+    .imagen-port{
+        width: 95%;
+    }
+}

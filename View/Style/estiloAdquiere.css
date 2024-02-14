@@ -1,0 +1,67 @@
+
+body{
+    width: 100%;
+    height: 800px;
+    background: #4ebc5b3d;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(118, 95%, 50%, 0), hsla(138, 45%, 52%, 0.315)), url(../img/adquisicion);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(103, 95%, 50%, 0.041), hsla(125, 45%, 52%, 0.181)), url(../img/adquisicion.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size:cover;
+    background-attachment: fixed;
+    position:relative;
+}
+  
+.container{
+    width: 100%;
+    height: 800px;
+    background: #4ebc5b92;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(118, 95%, 50%, 0.151), hsla(138, 45%, 52%, 0.315)), url(../img/adquisicion.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(103, 95%, 50%, 0.208), hsla(125, 45%, 52%, 0.181)), url(../img/adquisicion.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size:cover;
+    background-attachment:fixed;
+    position:relative;
+}
+
+.titulo{
+    font-family: 'Open Sans Condensed', sans-serif;
+    position: center;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 40px;
+    color: #ddd;
+    text-shadow: 3px 3px 10px #000;
+}
+
+nav{
+    text-align:right;
+    padding: 30px 50px 0px 0px;
+}
+
+nav > a,label{
+    color:hsl(0, 0%, 100%);
+    font-weight: 300;
+    text-decoration:none;
+    margin-right: 10px;
+}
+
+nav > a:hover{
+    text-decoration:underline;
+}
+
+form{
+    color: #fff;
+}
+
+.container section{
+    text-align:center;
+}
+
+input {
+    margin-bottom: 10px; /* Agrega un margen inferior de 10px entre los inputs */
+    padding: 5px; /* Agrega un relleno de 5px alrededor de cada input */
+}
