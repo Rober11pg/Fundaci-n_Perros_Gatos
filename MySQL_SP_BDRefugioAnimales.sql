@@ -416,7 +416,6 @@ END //
 DELIMITER ;
 
 DELIMITER //
-
 CREATE PROCEDURE BuscarMascotaEspecieRaza(
     IN p_EspecieID INT,
     IN p_RazaID INT,
@@ -425,14 +424,16 @@ CREATE PROCEDURE BuscarMascotaEspecieRaza(
     IN p_EdadRelativa VARCHAR(15)
 )
 BEGIN
-    SELECT *
-    FROM MASCOTA
-    WHERE (p_EspecieID IS NULL OR EspecieID = p_EspecieID)
-    AND (p_RazaID IS NULL OR RazaID = p_RazaID)
-    AND (p_Sexo IS NULL OR Sexo = p_Sexo)
-    AND (p_EstadoAdopcion IS NULL OR EstadoAdopcion = p_EstadoAdopcion)
-    AND (p_EdadRelativa IS NULL OR EdadRelativa = p_EdadRelativa);
-END //
+    SELECT m.*
+    FROM MASCOTA m
+    INNER JOIN RAZA r ON m.RazaID = r.RazaID
+    INNER JOIN ESPECIE e ON r.EspecieID = e.EspecieID
+    WHERE (p_EspecieID IS NULL OR e.EspecieID = p_EspecieID)
+    AND (p_RazaID IS NULL OR m.RazaID = p_RazaID)
+    AND (p_Sexo IS NULL OR m.Sexo = p_Sexo)
+    AND (p_EstadoAdopcion IS NULL OR m.EstadoAdopcion = p_EstadoAdopcion)
+    AND (p_EdadRelativa IS NULL OR m.EdadRelativa = p_EdadRelativa);
+END//
 
 DELIMITER ;
 
